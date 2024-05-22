@@ -9,7 +9,7 @@ public class Clothing{
         points = 0;
     }
 
-    public void getPoints(){
+    public int getPoints(){
         // placeholder right now
         return points;
     }
