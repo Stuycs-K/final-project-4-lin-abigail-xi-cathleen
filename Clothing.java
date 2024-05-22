@@ -1,0 +1,16 @@
+public class Clothing{
+    private int themeIndex;
+    private String filename;
+    private int points;
+
+    public Clothing(int theme, String file){
+        themeIndex = theme;
+        filename = file;
+        points = 0;
+    }
+
+    public void getPoints(){
+        // placeholder right now
+        return points;
+    }
+}
