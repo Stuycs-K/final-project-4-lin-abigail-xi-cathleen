@@ -13,4 +13,8 @@ public class Clothing{
         // placeholder right now
         return points;
     }
+
+    public String getFile(){
+        return filename;
+    }
 }
