@@ -1,25 +1,17 @@
+import java.util.ArrayList;
 public class Game{
-    private ArrayList<String> themes;
+    private String[] themes;
     private int currTheme int;
     private Avatar avatar;
     private ArrayList<Clothing> closet;
-    private int timer;
+    private int timer; //might be in setup instead;
 
     public Game(){
         timer = 90; //seconds
         avatar = new Avatar();
         currTheme = 0;
-        themes.add("Emo");
-        themes.add("Academia");
-        themes.add("MissUniverse");
-        themes.add("OldMoney");
-        themes.add("Y2K");
-        themes.add("ApologyVideo");
-        themes.add("StreetStyle");
-        themes.add("Gym");
-        themes.add("Cozy");
-        themes.add("MeanGirl");
-
+        themes = {"Emo", "Academia", "MissUniverse", 
+        "OldMoney", "Y2K", "ApologyVideo", "StreetStyle", "Gym", "Cozy", "MeanGirl"};
 
 
     }
@@ -32,8 +24,11 @@ public class Game{
         // closet may be randomized here
     }
 
-    public selectClothing(){}
+    public void selectClothing(Clothing selected){
+        avatar.addClothes(selected);
+        Menu.addX();
+    }
 
-    public removeClothing(){}
+    public void removeClothing(){}
 
 }
