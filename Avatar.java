@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Avatar{
     public ArrayList<Clothing> clothesOn;
     public int rating;
@@ -19,5 +21,9 @@ public class Avatar{
             }
         }
         return true;
+    }
+
+    public ArrayList<Clothing> getClothing(){
+        return clothesOn;
     }
 }
