@@ -10,7 +10,14 @@ public class Clothing{
     }
 
     public int getPoints(){
-        // placeholder right now
+        int currTheme = Integer.parseInt(filename.substring(0,1));
+        if (currTheme == themeIndex){
+            points += 10;
+        }
         return points;
+    }
+
+    public String getFile(){
+        return filename;
     }
 }
