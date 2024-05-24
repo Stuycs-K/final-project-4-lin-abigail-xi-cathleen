@@ -1,3 +1,4 @@
 00wolfcut.png
 01depressed.png
 02emoshirt.png
+02BlackLeatherJacket.png
