@@ -12,7 +12,19 @@ public class Game{
         currTheme = 0;
         themes = {"Emo", "Academia", "MissUniverse", 
         "OldMoney", "Y2K", "ApologyVideo", "StreetStyle", "Gym", "Cozy", "MeanGirl"};
-
+		closet.add(5,"55Ukelele.png");
+		closet.add(9, "92BarbieShirt.png");
+		closet.add(0, "02BlackLeatherjacket.png");
+		closet.add(3, "32GrayPolo.png");
+		closet.add(6, "62LightWashJeans.png");
+		closet.add(8, "82PinkHoodie.png");
+		closet.add(8, "82PurpleHoodie.png");
+		closet.add(8, "82WhiteHoodie.png");
+		closet.add(2, "22RedDress.png");
+		closet.add(4, "41BlackFlowyTank.png");
+		closet.add(6, "65BlackCap.png");
+		closet.add(0, "CombatBoots.png");
+		closet.add(4, "43BellBottoms.png");
 
     }
 
