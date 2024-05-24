@@ -29,6 +29,9 @@ public class Game{
         Menu.addX();
     }
 
-    public void removeClothing(){}
+    public void removeClothing(){
+		avatar.removeClothing(); // not sure how to use index here??
+		Menu.removeX();
+	}
 
 }
