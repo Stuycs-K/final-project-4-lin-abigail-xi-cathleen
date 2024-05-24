@@ -1,4 +1,13 @@
-00wolfcut.png
-01depressed.png
-02emoshirt.png
 02BlackLeatherJacket.png
+04CombatBoots.png
+22RedDress.png
+32GrayPolo.png
+42BlackFlowyTank.png
+43BellBottoms.png
+55Ukelele.png
+62LightWashJeans.png
+65BlackCap.png
+82PinkHoodie.png
+82PurpleHoodie.png
+82WhiteHoodie.png
+92BarbieShirt.png
