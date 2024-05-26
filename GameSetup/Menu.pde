@@ -1,12 +1,10 @@
-class Menu{
+public class Menu{
   
   public void createBox(String filename){
     PImage item;
-    size(220,220);
     item = loadImage(filename);
-    size(400, 400);
     rect(120, 80, 220, 220, 28);
-    image(item,120,80);    
+    image(item,120,80,220,220);    
   } //creates box with clothes image inside of it
   
   public void TopsTab(){}    // each tab is called from a button in GameSetup 
@@ -15,4 +13,5 @@ class Menu{
   public void PantTab(){}
   public void FaceTab(){}
   public void ShoeTab(){}
+  public Menu(){}
 }
