@@ -5,5 +5,5 @@ void setup(){
   menu = new Menu();
 }
 void draw(){
-  menu.createBox("22RedDress.png");
+  menu.TopsTab();
 }
