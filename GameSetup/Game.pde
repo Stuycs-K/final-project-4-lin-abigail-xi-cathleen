@@ -42,9 +42,9 @@ public class Game{
     }
 
     public void removeClothing(int index){
-		avatar.removeClothing(closet.get(index));
-		// Menu.removeX();
-	}
+    avatar.removeClothing(closet.get(index));
+    // Menu.removeX();
+  }
 
     public ArrayList<Clothing> getCloset(){
         return closet;
@@ -52,6 +52,10 @@ public class Game{
 
     public int getTheme(){
         return currTheme;
+    }
+    
+    public String getThemeName(){
+        return themes[currTheme];
     }
 
     public Avatar getAvatar(){
