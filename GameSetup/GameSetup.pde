@@ -8,5 +8,5 @@ void setup(){
   menu = new Menu();
 }
 void draw(){
-   menu.AccessoriesTab();
+   menu.TopsTab();
 }

@@ -143,5 +143,6 @@ public class Menu{
     }catch (FileNotFoundException ex){
     }
   }
-  public Menu(){}
+  public Menu(){
+  }
 }
