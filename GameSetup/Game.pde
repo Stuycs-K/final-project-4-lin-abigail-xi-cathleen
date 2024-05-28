@@ -9,24 +9,18 @@ public class Game{
     private final String[] themes = new String[]{"Emo", "Academia", "MissUniverse", "OldMoney", "Y2K", "ApologyVideo", "StreetStyle", "Gym", "Cozy", "MeanGirl"};
     private int currTheme;
     private Avatar avatar;
-    private ArrayList<Clothing> closet;
+    private String[] closetString;
+    private Clothing[] closetClothing;
 
     public Game(){
         avatar = new Avatar();
         currTheme = (int) Math.random()*10;
-        closet = new ArrayList<Clothing>();
-        try {
-            File file = new File("clothingNames.txt");
-            Scanner input = new Scanner(file);
-            while (input.hasNextLine()) {
-                String line = input.nextLine();
-                closet.add(new Clothing(currTheme,line));
-            }
-            input.close();
-
-        } catch (FileNotFoundException ex) {
+        closetString = loadStrings("clothingNames.txt");
+        for (int i = 0; i < closetString.length; i++){
+          closetClothing[i] = new Clothing(currTheme,closetString[i]);
         }
     }
+    
     // WIP!!!
     // might be moved to an outside class with a button
     public void newRound(){
@@ -37,17 +31,17 @@ public class Game{
     }
 
     public void selectClothing(int index){
-        avatar.addClothing(closet.get(index));
+        avatar.addClothing(closetClothing[index]);
         // Menu.addX();
     }
 
     public void removeClothing(int index){
-    avatar.removeClothing(closet.get(index));
-    // Menu.removeX();
-  }
+      avatar.removeClothing(closetClothing[index]);
+      // Menu.removeX();
+    }
 
-    public ArrayList<Clothing> getCloset(){
-        return closet;
+    public Clothing[] getCloset(){
+        return closetClothing;
     }
 
     public int getTheme(){

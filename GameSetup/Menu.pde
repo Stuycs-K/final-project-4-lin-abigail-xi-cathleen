@@ -3,8 +3,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Menu{
   Scanner Closet; // to be deleted
-  Game game = new Game();
-  ArrayList<Clothing> closet = game.getCloset();
+  Game game;
+  Clothing[] closet;
+  
+  public Menu(){
+    game = new Game();
+    closet = game.getCloset();
+  }
   
   public void createBox(String filename, int x, int y){
     PImage item;
@@ -14,10 +19,11 @@ public class Menu{
   } //creates box with clothes image inside of it
   
   public void TopsTab(){
+    
     int xSpace = 0;
     int ySpace = 0;
-    for (int i = 0; i < closet.size(); i++){
-      Clothing c = closet.get(i);
+    for (int i = 0; i < closet.length; i++){
+      Clothing c = closet[i];
        if (c.getType() == 2){
           createBox(c.getFile(), xSpace, ySpace);
           if(xSpace > 650){
@@ -29,7 +35,7 @@ public class Menu{
           }
        }
     }
-    System.out.println("hi");
+    //System.out.println("hi");
     //try{
     //  Closet = new Scanner (new File("Closet.txt"));
     //  while(Closet.hasNextLine()){
@@ -159,5 +165,4 @@ public class Menu{
     }catch (FileNotFoundException ex){
     }
   }
-  public Menu(){}
 }
