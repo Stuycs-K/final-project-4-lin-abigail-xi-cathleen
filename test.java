@@ -7,29 +7,46 @@ import java.util.Scanner;
 public class test{
 
     public static void main(String[] args){
-        // basic setup for scanning in all of the future clothes
-        int theme = 0;
-        Avatar you = new Avatar();
-        try {
-            File file = new File("clothingNames.txt");
-            Scanner input = new Scanner(file);
-            while (input.hasNextLine()) {
-                String line = input.nextLine();
-                // int themeIndex = Integer.parseInt(line.substring(0,1));
-                // int clothingType = Integer.parseInt(line.substring(1,2));
-                // String clothingName = line.substring(2,line.length()-4);
-                you.addClothing(new Clothing(theme,line));
-            }
-            input.close();//releases the file from your program
-
-        } catch (FileNotFoundException ex) {
-        }
-
+        Game dressToImpress = new Game();
+          // CLOSET PRINTER
+        // ArrayList<Clothing> arr = dressToImpress.getCloset();
+        // String result = "";
+        // for (int i = 0; i < arr.size(); i++){
+        //     result += arr.get(i).getFile() + " ";
+        // }
+        // System.out.println(result);
+        dressToImpress.selectClothing(0);
+            // AVATAR CLOTHES PRINTER
+        Avatar you = dressToImpress.getAvatar();
         String result = "";
         for (int i = 0; i < you.getClothing().size(); i++){
             result += you.getClothing().get(i).getFile() + " ";
         }
         System.out.println(result);
+
+        // basic setup for scanning in all of the future clothes
+        // int theme = 0;
+        // Avatar you = new Avatar();
+        // try {
+        //     File file = new File("clothingNames.txt");
+        //     Scanner input = new Scanner(file);
+        //     while (input.hasNextLine()) {
+        //         String line = input.nextLine();
+        //         // int themeIndex = Integer.parseInt(line.substring(0,1));
+        //         // int clothingType = Integer.parseInt(line.substring(1,2));
+        //         // String clothingName = line.substring(2,line.length()-4);
+        //         you.addClothing(new Clothing(theme,line));
+        //     }
+        //     input.close();//releases the file from your program
+
+        // } catch (FileNotFoundException ex) {
+        // }
+
+        // String result = "";
+        // for (int i = 0; i < you.getClothing().size(); i++){
+        //     result += you.getClothing().get(i).getFile() + " ";
+        // }
+        // System.out.println(result);
 
         // Clothing ukulele = new Accessories(5,"55Ukulele.png");
         // Clothing smile = new Face(5,"52Smile.png");
