@@ -29,6 +29,7 @@ public class Menu{
           }
        }
     }
+    System.out.println("hi");
     //try{
     //  Closet = new Scanner (new File("Closet.txt"));
     //  while(Closet.hasNextLine()){
