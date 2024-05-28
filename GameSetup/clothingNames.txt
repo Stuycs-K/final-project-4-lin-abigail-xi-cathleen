@@ -5,7 +5,7 @@
 42BlackFlowyTank.png
 43BellBottoms.png
 55Ukelele.png
-62LightWashJeans.png
+63LightWashJeans.png
 65BlackCap.png
 82PinkHoodie.png
 82PurpleHoodie.png

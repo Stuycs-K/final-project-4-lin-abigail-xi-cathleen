@@ -2,7 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Menu{
-  Scanner Closet;
+  Scanner Closet; // to be deleted
+  Game game = new Game();
+  ArrayList<Clothing> closet = game.getCloset();
   
   public void createBox(String filename, int x, int y){
     PImage item;
@@ -14,12 +16,10 @@ public class Menu{
   public void TopsTab(){
     int xSpace = 0;
     int ySpace = 0;
-    try{
-      Closet = new Scanner (new File("Closet.txt"));
-      while(Closet.hasNextLine()){
-        String line = Closet.nextLine();
-        if(line.charAt(1) == '2'){
-          createBox(line, xSpace, ySpace);
+    for (int i = 0; i < closet.size(); i++){
+      Clothing c = closet.get(i);
+       if (c.getType() == 2){
+          createBox(c.getFile(), xSpace, ySpace);
           if(xSpace > 650){
             ySpace += 300;
             xSpace = 0;
@@ -27,11 +27,26 @@ public class Menu{
           else{
             xSpace += 300;
           }
-        }
-      }
-      
-    }catch (FileNotFoundException ex){
+       }
     }
+    //try{
+    //  Closet = new Scanner (new File("Closet.txt"));
+    //  while(Closet.hasNextLine()){
+    //    String line = Closet.nextLine();
+    //    if(line.charAt(1) == '2'){
+    //      createBox(line, xSpace, ySpace);
+    //      if(xSpace > 650){
+    //        ySpace += 300;
+    //        xSpace = 0;
+    //      }
+    //      else{
+    //        xSpace += 300;
+    //      }
+    //    }
+    //  }
+      
+    //}catch (FileNotFoundException ex){
+    //}
   }    // each tab is called from a button in GameSetup 
   public void AccessoriesTab(){
      int xSpace = 0;
