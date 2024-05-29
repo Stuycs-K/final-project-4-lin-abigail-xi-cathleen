@@ -9,5 +9,10 @@ void setup(){
   menu = new Menu();
 }
 void draw(){
-   menu.TopsTab();
+   //menu.TopsTab(); // 92BarbieShirt.png 82WhiteHoodie.png
+   //menu.HairTab();
+   //menu.FaceTab();
+   //menu.PantTab();
+   //menu.ShoeTab();
+   //menu.AccessoriesTab(); // 55Ukelele.png
 }
