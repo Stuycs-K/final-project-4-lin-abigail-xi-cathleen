@@ -26,7 +26,7 @@ public class Game{
 
         } catch (FileNotFoundException ex) {
         }
-        rect(600,900, 300, 100);
+        rect(600,900, 300, 100); 
     }
     // WIP!!!
     // might be moved to an outside class with a button

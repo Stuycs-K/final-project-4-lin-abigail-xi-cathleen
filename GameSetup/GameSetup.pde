@@ -4,7 +4,7 @@ import java.util.Scanner;
 Menu menu;
 Game play;
 Scanner Closet;
-boolean NewRoundover;
+//boolean NewRoundover;
 void setup(){
   size(1200,1200);
   menu = new Menu();
@@ -12,26 +12,27 @@ void setup(){
 }
 
 void draw(){
-    update(mouseX, mouseY);
+    //update(mouseX, mouseY);
    menu.TopsTab();
 }
 
+/*
 void update(int x, int y){
-  if (overNewRound(x,y)){
+  if (overNewRound()){
     NewRoundover = true;
   }
   else{
     NewRoundover = false;
   }
 }
-
+*/
 void mousePressed(){
-  if (NewRoundover){
+  if (overNewRound()){
     play.newRound();
   }
 }
 
-boolean overNewRound (int x, int y ){
-return (mouseX >= x && mouseX <= x+300 && 
-      mouseY >= y && mouseY <= y+100);
+boolean overNewRound (){
+return (mouseX >= 600 && mouseX <= 900 && 
+      mouseY >= 900 && mouseY <= 1000);
 }  
