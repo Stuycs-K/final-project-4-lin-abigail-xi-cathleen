@@ -16,7 +16,6 @@ public class Menu{
     int ySpace = 0;
     try{
       Closet = new Scanner (new File("Closet.txt"));
-      System.out.println(file.getAbsolutePath());
       while(Closet.hasNextLine()){
         String line = Closet.nextLine();
         if(line.charAt(1) == '2'){
