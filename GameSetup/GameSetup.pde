@@ -6,8 +6,8 @@ Game play;
 Scanner Closet;
 //boolean NewRoundover;
 void setup(){
-  size(1200,1200);
-  menu = new Menu();
+  size(1600,900);
+  menu = new Menu(width,height);
   play = new Game();
 }
 
@@ -28,12 +28,12 @@ void update(int x, int y){
 */
 void mousePressed(){
   fill(255);
-  rect(0,0,1200,600);
+  rect(0,0,width/3, height, 28);
   if (overNewRound()){
     play.newRound();
   }
   if (overTops()){
-    menu.TopsTab();
+    menu.TopsTab(width);
   }
   if(overBottoms()){
     menu.PantTab();
