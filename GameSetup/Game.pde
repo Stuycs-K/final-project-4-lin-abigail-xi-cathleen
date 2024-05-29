@@ -26,14 +26,34 @@ public class Game{
 
         } catch (FileNotFoundException ex) {
         }
+      
+        rect(600,900, 300, 100);
+        textSize(50);
+        fill(0);
+        text("New Round", 620, 970);
+        
+        fill(255);
+        rect(100, 600, 250, 100);
+        textSize(50);
+        fill(0);
+        text("Tops", 120, 700);
+        
+        fill(255);
+        rect(400, 600, 250, 100);
+        textSize(50);
+        fill(0);
+        text("Bottoms", 420, 700);
+        
+    
+
     }
     // WIP!!!
     // might be moved to an outside class with a button
     public void newRound(){
         currTheme = (int) Math.random()*10;
         avatar = new Avatar();
-        
 
+        System.out.println ("Pressed Button");
         // closet will be randomized here given enough time
     }
 
