@@ -1,49 +1,61 @@
 import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Game{
-    private String[] themes;
-    private int currTheme int;
+    private final String[] themes = new String[]{"Emo", "Academia", "MissUniverse", "OldMoney", "Y2K", "ApologyVideo", "StreetStyle", "Gym", "Cozy", "MeanGirl"};
+    private int currTheme;
     private Avatar avatar;
     private ArrayList<Clothing> closet;
-    private int timer; //might be in setup instead;
 
     public Game(){
-        timer = 90; //seconds
         avatar = new Avatar();
-        currTheme = 0;
-        themes = {"Emo", "Academia", "MissUniverse", 
-        "OldMoney", "Y2K", "ApologyVideo", "StreetStyle", "Gym", "Cozy", "MeanGirl"};
-		closet.add(5,"55Ukelele.png");
-		closet.add(9, "92BarbieShirt.png");
-		closet.add(0, "02BlackLeatherjacket.png");
-		closet.add(3, "32GrayPolo.png");
-		closet.add(6, "62LightWashJeans.png");
-		closet.add(8, "82PinkHoodie.png");
-		closet.add(8, "82PurpleHoodie.png");
-		closet.add(8, "82WhiteHoodie.png");
-		closet.add(2, "22RedDress.png");
-		closet.add(4, "41BlackFlowyTank.png");
-		closet.add(6, "65BlackCap.png");
-		closet.add(0, "CombatBoots.png");
-		closet.add(4, "43BellBottoms.png");
+        currTheme = (int) Math.random()*10;
+        closet = new ArrayList<Clothing>();
+        try {
+            File file = new File("clothingNames.txt");
+            Scanner input = new Scanner(file);
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                closet.add(new Clothing(currTheme,line));
+            }
+            input.close();
 
+        } catch (FileNotFoundException ex) {
+        }
     }
-
+    // WIP!!!
+    // might be moved to an outside class with a button
     public void newRound(){
-        currTheme ++;
-        timer = 90;
+        currTheme = (int) Math.random()*10;
         avatar = new Avatar();
 
-        // closet may be randomized here
+        // closet will be randomized here given enough time
     }
 
-    public void selectClothing(Clothing selected){
-        avatar.addClothes(selected);
-        Menu.addX();
+    public void selectClothing(int index){
+        avatar.addClothing(closet.get(index));
+        // Menu.addX();
     }
 
-    public void removeClothing(){
-		avatar.removeClothing(); // not sure how to use index here??
-		Menu.removeX();
+    public void removeClothing(int index){
+		avatar.removeClothing(closet.get(index));
+		// Menu.removeX();
 	}
+
+    public ArrayList<Clothing> getCloset(){
+        return closet;
+    }
+
+    public int getTheme(){
+        return currTheme;
+    }
+
+    public Avatar getAvatar(){
+        return avatar;
+    }
 
 }

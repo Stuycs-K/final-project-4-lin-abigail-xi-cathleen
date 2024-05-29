@@ -9,23 +9,20 @@ public class Game{
     private final String[] themes = new String[]{"Emo", "Academia", "MissUniverse", "OldMoney", "Y2K", "ApologyVideo", "StreetStyle", "Gym", "Cozy", "MeanGirl"};
     private int currTheme;
     private Avatar avatar;
-    private ArrayList<Clothing> closet;
+    private String[] closetString;
+    private Clothing[] closetClothing;
+
 
     public Game(){
         avatar = new Avatar();
         currTheme = (int) Math.random()*10;
-        closet = new ArrayList<Clothing>();
-        try {
-            File file = new File("clothingNames.txt");
-            Scanner input = new Scanner(file);
-            while (input.hasNextLine()) {
-                String line = input.nextLine();
-                closet.add(new Clothing(currTheme,line));
-            }
-            input.close();
-
-        } catch (FileNotFoundException ex) {
+        closetString = loadStrings("clothingNames.txt");
+        closetClothing = new Clothing[closetString.length];
+        for (int i = 0; i < closetString.length; i++){
+          closetClothing[i] = new Clothing(currTheme,closetString[i]);
         }
+        // barbie shirt and white hoodie have bad image data/may not be an image
+     
       
         rect(600,900, 300, 100);
         textSize(50);
@@ -47,28 +44,37 @@ public class Game{
     
 
     }
+
+
+       
+    
+    
+
     // WIP!!!
     // might be moved to an outside class with a button
     public void newRound(){
         currTheme = (int) Math.random()*10;
         avatar = new Avatar();
-
         System.out.println ("Pressed Button");
+
         // closet will be randomized here given enough time
     }
 
     public void selectClothing(int index){
-        avatar.addClothing(closet.get(index));
+
+        avatar.addClothing(closetClothing[index]);
+
         // Menu.addX();
     }
 
     public void removeClothing(int index){
-    avatar.removeClothing(closet.get(index));
-    // Menu.removeX();
-  }
 
-    public ArrayList<Clothing> getCloset(){
-        return closet;
+      avatar.removeClothing(closetClothing[index]);
+      // Menu.removeX();
+    }
+
+    public Clothing[] getCloset(){
+        return closetClothing;
     }
 
     public int getTheme(){
