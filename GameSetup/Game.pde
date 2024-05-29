@@ -32,6 +32,7 @@ public class Game{
     public void newRound(){
         currTheme = (int) Math.random()*10;
         avatar = new Avatar();
+        
 
         // closet will be randomized here given enough time
     }
