@@ -16,9 +16,11 @@ public class Game{
         avatar = new Avatar();
         currTheme = (int) Math.random()*10;
         closetString = loadStrings("clothingNames.txt");
+        closetClothing = new Clothing[closetString.length];
         for (int i = 0; i < closetString.length; i++){
           closetClothing[i] = new Clothing(currTheme,closetString[i]);
         }
+        // barbie shirt and white hoodie have bad image data/may not be an image
     }
     
     // WIP!!!
