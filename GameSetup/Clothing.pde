@@ -1,12 +1,19 @@
 public class Clothing{
-    private int themeIndex;
-    private String filename;
-    private int points;
+    int themeIndex;
+    String filename;
+    int points;
+    int x,y;
+    boolean clicked;
+    PImage image;
 
-    public Clothing(int theme, String file){
+    public Clothing(int xcoord, int ycoord, int theme, String file){
         themeIndex = theme;
         filename = file;
         points = 0;
+        x = xcoord;
+        y = ycoord;
+        clicked = false;
+        image = loadImage(file);
     }
 
     public int getPoints(){
@@ -24,4 +31,33 @@ public class Clothing{
     public int getType(){
       return Integer.parseInt(filename.substring(1,2));
     }
+    
+    void checkClicked(float cx, float cy){
+    if (cx > x+120 && cx < x+340 && cy > y+80 && cy < y+300){
+      clicked = true;
+    }
+    else {
+      clicked = false;
+    }
+  }
+  
+  void update(){
+    if (clicked) {
+     float dx = mouseX - pmouseX;
+     float dy = mouseY - pmouseY;
+     x += dx;
+     y += dy;
+    }
+  }
+  
+  public void createBox(int x, int y){
+  //  PImage item;
+  //  item = loadImage(filename);
+  //  rect(120 + x, 80 + y, 220, 220, 28);
+    image(image,120 + x,80 + y,220,220);    
+  } //creates box with clothes image inside of it
+  
+  void display(){
+    createBox(x, y);
+  }
 }

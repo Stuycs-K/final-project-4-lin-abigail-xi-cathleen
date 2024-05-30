@@ -11,6 +11,10 @@ public class Menu{
     closet = game.getCloset();
   }
   
+   public Clothing[] getCloset(){
+        return closet;
+    }
+  
   public void createBox(String filename, int x, int y){
     PImage item;
     item = loadImage(filename);

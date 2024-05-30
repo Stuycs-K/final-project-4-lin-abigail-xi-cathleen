@@ -3,33 +3,53 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 Menu menu;
 Scanner Closet;
-float posX = 250;
-float posY = 250;
-float wide = 50;
-boolean hold = false;
+
+Clothing[] clothes;
+int numClothes = 10;
 
 void setup(){
   size(1200,1200);
   menu = new Menu();
-  rectMode(CENTER);
+  
+  clothes = menu.getCloset(); // grabs the closet from menu
+  //for (int i = 0; i < clothes.length; i++){
+  //  println(clothes[i].getFile());
+  //}
 }
+
 void draw(){
-   background(0); // can be changed later
-   noStroke();
-   fill(255);
-     if(mouseX>=posX-wide/2 && mouseX<=posX+wide/2 && mouseY>=posY-wide/2 && mouseY<=posY+wide/2){
-    fill(255,255,0);
-    if (mousePressed==true){
-      posX=mouseX;
-      posY=mouseY;
+   background(123); // displays each of the clothes
+   for (int i = 0; i < numClothes; i++){
+     clothes[i].display();
+   }
+}
+
+void mouseReleased(){
+  for (int i = 0; i < numClothes; i++){
+    clothes[i].clicked = false;
+  }
+}
+
+void mouseDragged(){
+  for (int i = 0; i < numClothes; i++){
+    clothes[i].update();
+  }
+}
+
+void mousePressed(){
+  int idx = -1;
+  for (int i = numClothes-1; i >= 0; i--){
+    clothes[i].checkClicked(mouseX,mouseY);
+    if (clothes[i].clicked){
+      idx = i;
+      break;
     }
   }
-  rect(posX,posY,wide,wide);
-   //menu.TopsTab(); // 92BarbieShirt.png 82WhiteHoodie.png
-   //menu.HairTab();
-   //menu.FaceTab();
-   //rectMode(CORNER);
-   //menu.PantTab();
-   //menu.ShoeTab();
-   //menu.AccessoriesTab(); // 55Ukelele.png
+  if (idx != -1){
+    Clothing last = clothes[idx];
+    for (int i = idx+1; i < numClothes; i++){
+      clothes[i-1] = clothes[i];
+    }
+    clothes[numClothes-1] = last;
+  }
 }
