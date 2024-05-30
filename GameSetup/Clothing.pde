@@ -5,7 +5,9 @@ public class Clothing{
     int x,y;
     boolean clicked;
     boolean onAvatar;
+    boolean moveable;
     PImage image;
+    int type;
 
     public Clothing(int xcoord, int ycoord, int theme, String file){
         themeIndex = theme;
@@ -15,6 +17,8 @@ public class Clothing{
         y = ycoord;
         clicked = false;
         image = loadImage(file);
+        type = Integer.parseInt(filename.substring(1,2));
+        moveable = true;
     }
 
     public int getPoints(){
@@ -30,11 +34,11 @@ public class Clothing{
     }
     
     public int getType(){
-      return Integer.parseInt(filename.substring(1,2));
+      return type;
     }
     
     void checkClicked(float cx, float cy){
-    if (cx > x+120 && cx < x+340 && cy > y+80 && cy < y+300){
+    if (cx > x+120 && cx < x+340 && cy > y+80 && cy < y+300 && moveable){
       clicked = true;
     }
     else {
@@ -55,11 +59,23 @@ public class Clothing{
     }
   }
   
+  boolean isMoveable(){
+    return moveable;
+  }
+  
+  void snapOn(){
+    if (type == 2){
+      moveable = false;
+      x = 750;
+      y = 150;
+    }
+  }
+  
   public void createBox(int x, int y){
   //  PImage item;
   //  item = loadImage(filename);
   //  rect(120 + x, 80 + y, 220, 220, 28);
-    image(image,120 + x,80 + y,220,220);    
+    image(image,x,y,220,220);    
   } //creates box with clothes image inside of it
   
   void display(){

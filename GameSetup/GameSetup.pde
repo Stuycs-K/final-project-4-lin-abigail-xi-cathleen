@@ -25,33 +25,44 @@ void draw(){
    for (int i = 0; i < numClothes; i++){
      clothes[i].display();
    }
+   //textSize(50);
+   //fill(0);
+   //stroke(0);
+   //text("MouseX: "+mouseX,20,100);
+   //text("MouseY: "+mouseY,20,150);
 }
 
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
     clothes[i].clicked = false;
-    if (clothes
-  }
-  if (clothes[i].getX() > width/3*2 && clothes){
+    if (mouseX > width*0.6){
+      clothes[i].snapOn();
+    }
   }
 }
 
 void mouseDragged(){
   for (int i = 0; i < numClothes; i++){
-    clothes[i].update();
+    if (clothes[i].isMoveable()){
+      clothes[i].update();
+    }
   }
 }
 
 void mousePressed(){
   int idx = -1;
+  boolean moveable = true;
   for (int i = numClothes-1; i >= 0; i--){
-    clothes[i].checkClicked(mouseX,mouseY);
-    if (clothes[i].clicked){
-      idx = i;
-      break;
+    if (clothes[i].isMoveable()){
+      moveable = false;
+      clothes[i].checkClicked(mouseX,mouseY);
+      if (clothes[i].clicked){
+        idx = i;
+        break;
+      }
     }
   }
-  if (idx != -1){
+  if (idx != -1 && moveable){
     Clothing last = clothes[idx];
     for (int i = idx+1; i < numClothes; i++){
       clothes[i-1] = clothes[i];
