@@ -5,22 +5,23 @@ Menu menu;
 Scanner Closet;
 
 Clothing[] clothes;
-int numClothes = 20;
+int numClothes = 10;
 
 void setup(){
   size(1200,1200);
   menu = new Menu();
   
-  clothes = new Clothing[numClothes];
-  for (int i = 0; i < numClothes; i++){
-    clothes[i] = new Clothing(
-  }
+  clothes = menu.getCloset();
+  //for (int i = 0; i < clothes.length; i++){
+  //  println(clothes[i].getFile());
+  //}
 }
 
 void draw(){
-   background(0); // can be changed later
-   cloth1.update();
-   cloth1.display();
+   background(123); // can be changed later
+   for (int i = 0; i < numClothes; i++){
+     clothes[i].display();
+   }
    // niki base: https://drive.google.com/drive/folders/1zZlChNqabhd1GIfUX0fB_Hpyzfxh8_n4
    //menu.TopsTab(); // 92BarbieShirt.png 82WhiteHoodie.png
    //menu.HairTab(); // https://lovenikki.fandom.com/wiki/Hairs
@@ -40,11 +41,27 @@ void mouseReleased(){
 }
 
 void mouseDragged(){
-  cloth1.update();
+  for (int i = 0; i < numClothes; i++){
+    clothes[i].update();
+  }
 }
 
 void mousePressed(){
-  cloth1.checkClicked(mouseX, mouseY);
+  int idx = -1;
+  for (int i = numClothes-1; i >= 0; i--){
+    clothes[i].checkClicked(mouseX,mouseY);
+    if (clothes[i].clicked){
+      idx = i;
+      break;
+    }
+  }
+  if (idx != -1){
+    Clothing last = clothes[idx];
+    for (int i = idx+1; i < numClothes; i++){
+      clothes[i-1] = clothes[i];
+    }
+    clothes[numClothes-1] = last;
+  }
 }
 
 //class Cloth{

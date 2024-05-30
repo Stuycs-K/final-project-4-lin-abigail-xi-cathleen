@@ -2,10 +2,10 @@ public class Clothing{
     int themeIndex;
     String filename;
     int points;
-    float x,y;
+    int x,y;
     boolean clicked;
 
-    public Clothing(float xcoord, float ycoord, int theme, String file){
+    public Clothing(int xcoord, int ycoord, int theme, String file){
         themeIndex = theme;
         filename = file;
         points = 0;
@@ -44,7 +44,7 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
-    if (cx > x && cx < x+w && cy > y && cy < y+h){
+    if (cx > x && cy > y){
       clicked = true;
     }
     else {
