@@ -4,6 +4,7 @@ public class Clothing{
     int points;
     int x,y;
     boolean clicked;
+    PImage image;
 
     public Clothing(int xcoord, int ycoord, int theme, String file){
         themeIndex = theme;
@@ -12,6 +13,7 @@ public class Clothing{
         x = xcoord;
         y = ycoord;
         clicked = false;
+        image = loadImage(file);
     }
 
     public int getPoints(){
@@ -48,14 +50,14 @@ public class Clothing{
     }
   }
   
-  public void createBox(String filename, int x, int y){
-    PImage item;
-    item = loadImage(filename);
-    //rect(120 + x, 80 + y, 220, 220, 28);
-    image(item,120 + x,80 + y,220,220);    
+  public void createBox(int x, int y){
+  //  PImage item;
+  //  item = loadImage(filename);
+  //  rect(120 + x, 80 + y, 220, 220, 28);
+    image(image,120 + x,80 + y,220,220);    
   } //creates box with clothes image inside of it
   
   void display(){
-    createBox(filename, x, y);
+    createBox(x, y);
   }
 }
