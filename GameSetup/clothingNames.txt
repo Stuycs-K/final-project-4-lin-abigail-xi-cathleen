@@ -9,5 +9,3 @@
 65BlackCap.png
 82PinkHoodie.png
 82PurpleHoodie.png
-82WhiteHoodie.png
-92BarbieShirt.png
