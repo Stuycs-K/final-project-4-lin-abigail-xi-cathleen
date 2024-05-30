@@ -13,7 +13,7 @@ public class Game{
     private Clothing[] closetClothing;
 
 
-    public Game(){
+    public Game(int width, int height){
         avatar = new Avatar();
         currTheme = (int) Math.random()*10;
         closetString = loadStrings("clothingNames.txt");
@@ -23,24 +23,46 @@ public class Game{
         }
         // barbie shirt and white hoodie have bad image data/may not be an image
      
+     int vertSpace = 0;
+      for(int i = 0; i < 6; i++){
+        fill(255);
+        rect(width/3,0 + vertSpace, 50, (height/6)-20); 
+        if(i == 0){
+          textSize(50);
+          fill(0);
+          rotate(PI/2);
+          text("Tops", width/3, 0 + vertSpace);
+        }
+        vertSpace += (height/6);
+      }
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      /*
         rect(600,900, 300, 100);
         textSize(50);
         fill(0);
         text("New Round", 620, 970);
         
         fill(255);
-        rect(100, 600, 250, 100);
+        rect(width/3,(height/6)*(1/4), 20, (height/6)*(1/2));
         textSize(50);
         fill(0);
         text("Tops", 120, 700);
         
         fill(255);
-        rect(400, 600, 250, 100);
+        rect(width/3,(height/6)*(1/4), 20, (height/6)*(1/2));
         textSize(50);
         fill(0);
         text("Bottoms", 420, 700);
-        
+       */ 
     
 
     }

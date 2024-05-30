@@ -8,7 +8,7 @@ Scanner Closet;
 void setup(){
   size(1600,900);
   menu = new Menu(width,height);
-  play = new Game();
+  play = new Game(width, height);
 }
 
 void draw(){
@@ -36,7 +36,7 @@ void mousePressed(){
     menu.TopsTab(width);
   }
   if(overBottoms()){
-    menu.PantTab();
+    menu.PantTab(width);
   }
 }
 
