@@ -2,14 +2,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 Menu menu;
+Avatar av;
 Scanner Closet;
 
 Clothing[] clothes;
 int numClothes = 10;
 
 void setup(){
-  size(1200,1200);
+  size(1200,900);
   menu = new Menu();
+  av = new Avatar();
   
   clothes = menu.getCloset(); // grabs the closet from menu
   //for (int i = 0; i < clothes.length; i++){
@@ -19,6 +21,7 @@ void setup(){
 
 void draw(){
    background(123); // displays each of the clothes
+   av.display();
    for (int i = 0; i < numClothes; i++){
      clothes[i].display();
    }

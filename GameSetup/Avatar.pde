@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class Avatar{
     public ArrayList<Clothing> clothesOn;
     public int rating;
+    PImage avatar;
 
     public Avatar(){
         clothesOn = new ArrayList<Clothing>();
         rating = 0;
+        avatar = loadImage("avatar.png");
     }
 
     public boolean addClothing(Clothing c){
@@ -61,5 +63,9 @@ public class Avatar{
 
     public void resetOutfit(){
         clothesOn = new ArrayList<Clothing>();
+    }
+    
+    void display(){
+      image(avatar,width/2,0,avatar.width/3.5,avatar.height/3.5);
     }
 }
