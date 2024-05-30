@@ -11,28 +11,18 @@ void setup(){
   size(1200,1200);
   menu = new Menu();
   
-  clothes = menu.getCloset();
+  clothes = menu.getCloset(); // grabs the closet from menu
   //for (int i = 0; i < clothes.length; i++){
   //  println(clothes[i].getFile());
   //}
 }
 
 void draw(){
-   background(123); // can be changed later
+   background(123); // displays each of the clothes
    for (int i = 0; i < numClothes; i++){
      clothes[i].display();
    }
-   // niki base: https://drive.google.com/drive/folders/1zZlChNqabhd1GIfUX0fB_Hpyzfxh8_n4
-   //menu.TopsTab(); // 92BarbieShirt.png 82WhiteHoodie.png
-   //menu.HairTab(); // https://lovenikki.fandom.com/wiki/Hairs
-   //menu.FaceTab();
-   //rectMode(CORNER);
-   //menu.PantTab();
-   //menu.ShoeTab();
-   //menu.AccessoriesTab(); // 55Ukelele.png
 }
-
-// test
 
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
@@ -63,38 +53,3 @@ void mousePressed(){
     clothes[numClothes-1] = last;
   }
 }
-
-//class Cloth{
-//  float x,y;
-//  float w,h;
-//  boolean hold;
-  
-//  Cloth(float _x, float _y, float _w, float _h){
-//    x = _x;
-//    y = _y;
-//    w = _w;
-//    h = _h;
-//    hold = false;
-//  }
-  
-//  void checkClicked(float cx, float cy){
-//    if (cx > x && cx < x+w && cy > y && cy < y+h){
-//      hold = true;
-//    }
-//    else {
-//      hold = false;
-//    }
-//  }
-  
-//  void update(){
-//     float dx = mouseX - pmouseX;
-//     float dy = mouseY - pmouseY;
-//     x += dx;
-//     y += dy;
-//  }
-  
-//  void display(){
-//    // CHANGE
-//    rect(x,y,w,h);
-//  }
-//}

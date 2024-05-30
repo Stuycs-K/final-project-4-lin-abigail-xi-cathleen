@@ -30,21 +30,8 @@ public class Clothing{
       return Integer.parseInt(filename.substring(1,2));
     }
     
-    public int getX(){
-      return x;
-    }
-    
-    public int getY(){
-      return y;
-    }
-    
-    public void moveClothing(int _x, int _y){
-      x = _x;
-      y = _y;
-    }
-    
     void checkClicked(float cx, float cy){
-    if (cx > x && cy > y){
+    if (cx > x+120 && cx < x+340 && cy > y+80 && cy < y+300){
       clicked = true;
     }
     else {
@@ -52,17 +39,19 @@ public class Clothing{
     }
   }
   
-    void update(){
+  void update(){
+    if (clicked) {
      float dx = mouseX - pmouseX;
      float dy = mouseY - pmouseY;
      x += dx;
      y += dy;
+    }
   }
   
-    public void createBox(String filename, int x, int y){
+  public void createBox(String filename, int x, int y){
     PImage item;
     item = loadImage(filename);
-    rect(120 + x, 80 + y, 220, 220, 28);
+    //rect(120 + x, 80 + y, 220, 220, 28);
     image(item,120 + x,80 + y,220,220);    
   } //creates box with clothes image inside of it
   
