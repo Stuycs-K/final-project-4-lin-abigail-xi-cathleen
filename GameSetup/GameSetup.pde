@@ -34,18 +34,20 @@ void draw(){
 
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
-    clothes[i].clicked = false;
-    if (mouseX > width*0.6){
+    if (mouseX > width*0.6 && clothes[i].clicked == true){
+      //println(clothes[i].getFile());
+      //println("DONE!");
       clothes[i].snapOn();
     }
+    clothes[i].clicked = false;
   }
 }
 
 void mouseDragged(){
   for (int i = 0; i < numClothes; i++){
-    if (clothes[i].isMoveable()){
+    //if (clothes[i].isMoveable()){
       clothes[i].update();
-    }
+    //}
   }
 }
 
