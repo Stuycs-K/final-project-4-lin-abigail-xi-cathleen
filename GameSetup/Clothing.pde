@@ -4,6 +4,7 @@ public class Clothing{
     int points;
     int x,y;
     boolean clicked;
+    boolean onAvatar;
     PImage image;
 
     public Clothing(int xcoord, int ycoord, int theme, String file){
@@ -40,6 +41,10 @@ public class Clothing{
       clicked = false;
     }
   }
+  
+  //void checkOnAvatar(float _x, float _y){
+  //  if (_x > 
+  //}
   
   void update(){
     if (clicked) {

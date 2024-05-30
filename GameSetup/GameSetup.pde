@@ -30,6 +30,9 @@ void draw(){
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
     clothes[i].clicked = false;
+    if (clothes
+  }
+  if (clothes[i].getX() > width/3*2 && clothes){
   }
 }
 
