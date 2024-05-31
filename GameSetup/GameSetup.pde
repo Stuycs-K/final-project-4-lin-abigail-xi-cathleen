@@ -44,11 +44,11 @@ void mousePressed(){
    if (overHair()){
     menu.HairTab(width);
   }
-  /*
+  
   if(overAccessories()){
     menu.AccessoriesTab(width);
   }
-  */
+  
   if(overShoes()){
     menu.ShoeTab(width);
   }
@@ -73,17 +73,17 @@ return (mouseX >= width/3 && mouseX <= width/3+50 &&
 }
 boolean overFace(){
 return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= height/6 && mouseY <= 3*height/6-20);
+      mouseY >= 2*height/6 && mouseY <= 3*height/6-20);
 }
 boolean overHair(){
 return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= height/6 && mouseY <= 4*height/6-20);
+      mouseY >= 3*height/6 && mouseY <= 4*height/6-20);
 }
 boolean overAccessories(){
 return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= height/6 && mouseY <= 5*height/6-20);
+      mouseY >= 4*height/6 && mouseY <= 5*height/6-20);
 }
 boolean overShoes(){
 return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= height/6 && mouseY <= 6*height/6-20);
+      mouseY >= 5*height/6 && mouseY <= 6*height/6-20);
 }
