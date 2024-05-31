@@ -19,11 +19,11 @@ void draw(){
    for (int i = 0; i < numClothes; i++){
      clothes[i].display();
    }
-   //textSize(50);
-   //fill(0);
-   //stroke(0);
-   //text("MouseX: "+mouseX,20,100);
-   //text("MouseY: "+mouseY,20,150);
+   textSize(50);
+   fill(0);
+   stroke(0);
+   text("MouseX: "+mouseX,20,100);
+   text("MouseY: "+mouseY,20,150);
 }
 
 void mouseReleased(){
