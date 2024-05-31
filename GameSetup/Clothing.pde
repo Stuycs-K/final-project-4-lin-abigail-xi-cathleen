@@ -8,6 +8,7 @@ public class Clothing{
     boolean moveable;
     PImage image;
     int type;
+    float constant;
 
     public Clothing(int xcoord, int ycoord, int theme, String file){
         themeIndex = theme;
@@ -18,6 +19,10 @@ public class Clothing{
         clicked = false;
         image = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
+        if (type == 0){ constant = 0.75; }
+        if (type == 2){ constant = 0.57; }
+        if (type == 4){ constant = 0.6; }
+        if (type == 4){ constant = 0.48; }
         moveable = true;
     }
 
@@ -64,24 +69,29 @@ public class Clothing{
   }
   
   void snapOn(){
+    moveable = false;
     if (type == 0){
-      moveable = false;
       x = 780;
       y = 10;
     }
     if (type == 2){
-      moveable = false;
-      x = 750;
-      y = 150;
+      x = 760;
+      y = 145;
+    }
+    if (type == 3){
+      x = 760;
+      y = 145;
+    }
+    if (type == 4){
+      x = 833;
+      y = 685;
     }
   }
   
   public void createBox(int x, int y){
-  //  PImage item;
-  //  item = loadImage(filename);
   //  rect(120 + x, 80 + y, 220, 220, 28);
-    image(image,x,y,image.width*0.75,image.height*0.75);    
-  } //creates box with clothes image inside of it
+    image(image,x,y,image.width*constant,image.height*constant);
+  }
   
   void display(){
     createBox(x, y);

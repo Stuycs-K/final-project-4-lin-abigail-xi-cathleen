@@ -6,7 +6,7 @@ Avatar av;
 Scanner Closet;
 
 Clothing[] clothes;
-int numClothes = 1;
+int numClothes = 4;
 
 void setup(){
   size(1200,900);
