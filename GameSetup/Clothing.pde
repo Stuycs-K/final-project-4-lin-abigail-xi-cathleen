@@ -64,6 +64,11 @@ public class Clothing{
   }
   
   void snapOn(){
+    if (type == 0){
+      moveable = false;
+      x = 780;
+      y = 10;
+    }
     if (type == 2){
       moveable = false;
       x = 750;
@@ -75,7 +80,7 @@ public class Clothing{
   //  PImage item;
   //  item = loadImage(filename);
   //  rect(120 + x, 80 + y, 220, 220, 28);
-    image(image,x,y,220,220);    
+    image(image,x,y,image.width*0.75,image.height*0.75);    
   } //creates box with clothes image inside of it
   
   void display(){

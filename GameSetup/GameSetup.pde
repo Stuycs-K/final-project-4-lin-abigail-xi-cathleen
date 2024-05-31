@@ -6,7 +6,7 @@ Avatar av;
 Scanner Closet;
 
 Clothing[] clothes;
-int numClothes = 10;
+int numClothes = 1;
 
 void setup(){
   size(1200,900);
@@ -25,11 +25,11 @@ void draw(){
    for (int i = 0; i < numClothes; i++){
      clothes[i].display();
    }
-   //textSize(50);
-   //fill(0);
-   //stroke(0);
-   //text("MouseX: "+mouseX,20,100);
-   //text("MouseY: "+mouseY,20,150);
+   textSize(50);
+   fill(0);
+   stroke(0);
+   text("MouseX: "+mouseX,20,100);
+   text("MouseY: "+mouseY,20,150);
 }
 
 void mouseReleased(){
@@ -45,9 +45,7 @@ void mouseReleased(){
 
 void mouseDragged(){
   for (int i = 0; i < numClothes; i++){
-    //if (clothes[i].isMoveable()){
-      clothes[i].update();
-    //}
+    clothes[i].update();
   }
 }
 
