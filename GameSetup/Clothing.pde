@@ -43,17 +43,13 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
-    if (cx > x+120 && cx < x+340 && cy > y+80 && cy < y+300 && moveable){
+    if (cx > x && cx < x+image.width*constant && cy > y && cy < y+image.height*constant && moveable){
       clicked = true;
     }
     else {
       clicked = false;
     }
   }
-  
-  //void checkOnAvatar(float _x, float _y){
-  //  if (_x > 
-  //}
   
   void update(){
     if (clicked) {
@@ -62,10 +58,6 @@ public class Clothing{
      x += dx;
      y += dy;
     }
-  }
-  
-  boolean isMoveable(){
-    return moveable;
   }
   
   void snapOn(){

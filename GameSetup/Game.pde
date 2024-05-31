@@ -19,11 +19,11 @@ public class Game{
         for (int i = 0; i < closetString.length; i++){
           closetClothing[i] = new Clothing(0,0+(i*100),currTheme,closetString[i]);
         }
-        // start off clothing at 0,0, which will be moved to respective places
+        
        int vertSpace = 0;
-      for(int i = 0; i < 6; i++){
-        fill(255);
-        rect(width/3,0 + vertSpace, 50, (height/6)-20); 
+       for(int i = 0; i < 6; i++){
+          fill(255);
+          rect(width/3,0 + vertSpace, 50, (height/6)-20); 
         /*
         if(i == 0){
           textSize(50);
@@ -32,12 +32,10 @@ public class Game{
           text("Tops", width/3, 0 + vertSpace);
         }
         */
-        vertSpace += (height/6);
-      }
+           vertSpace += (height/6);
+        }
     }
     
-    // WIP!!!
-    // might be moved to an outside class with a button
     public void newRound(){
         currTheme = (int) Math.random()*10;
         avatar = new Avatar();

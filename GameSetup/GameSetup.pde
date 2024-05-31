@@ -1,11 +1,7 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 Menu menu;
 Game play;
 Avatar av;
 Scanner Closet;
-
 Clothing[] clothes;
 int numClothes = 4;
 
@@ -14,11 +10,7 @@ void setup(){
   menu = new Menu(width,height);
   play = new Game(width,height);
   av = new Avatar();
-  
   clothes = menu.getCloset(); // grabs the closet from menu
-  //for (int i = 0; i < clothes.length; i++){
-  //  println(clothes[i].getFile());
-  //}
 }
 
 void draw(){
@@ -27,18 +19,16 @@ void draw(){
    for (int i = 0; i < numClothes; i++){
      clothes[i].display();
    }
-   textSize(50);
-   fill(0);
-   stroke(0);
-   text("MouseX: "+mouseX,20,100);
-   text("MouseY: "+mouseY,20,150);
+   //textSize(50);
+   //fill(0);
+   //stroke(0);
+   //text("MouseX: "+mouseX,20,100);
+   //text("MouseY: "+mouseY,20,150);
 }
 
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
     if (mouseX > width*0.6 && clothes[i].clicked == true){
-      //println(clothes[i].getFile());
-      //println("DONE!");
       clothes[i].snapOn();
     }
     clothes[i].clicked = false;
@@ -53,16 +43,12 @@ void mouseDragged(){
 
 void mousePressed(){
   int idx = -1;
-  //boolean moveable = true;
   for (int i = numClothes-1; i >= 0; i--){
-    //if (clothes[i].isMoveable()){
-    //  moveable = false;
       clothes[i].checkClicked(mouseX,mouseY);
       if (clothes[i].clicked){
         idx = i;
         break;
       }
-    //}
   }
   if (idx != -1){
     Clothing last = clothes[idx];
@@ -71,31 +57,30 @@ void mousePressed(){
     }
     clothes[numClothes-1] = last;
   }
-    fill(255);
-  rect(0,0,width/3, height, 28);
-  if (overNewRound()){
-    play.newRound();
-  }
-  if (overTops()){
-    menu.TopsTab(width);
-  }
-  if(overBottoms()){
-    menu.PantTab(width);
-  }
-  if(overFace()){
-    menu.FaceTab(width);
-  }
-   if (overHair()){
-    menu.HairTab(width);
-  }
+  //  fill(255);
+  //rect(0,0,width/3, height, 28);
+  //if (overNewRound()){
+  //  play.newRound();
+  //}
+  //if (overTops()){
+  //  menu.TopsTab(width);
+  //}
+  //if(overBottoms()){
+  //  menu.PantTab(width);
+  //}
+  //if(overFace()){
+  //  menu.FaceTab(width);
+  //}
+  // if (overHair()){
+  //  menu.HairTab(width);
+  //}
   
-  if(overAccessories()){
-    menu.AccessoriesTab(width);
-  }
-  
-  if(overShoes()){
-    menu.ShoeTab(width);
-  }
+  //if(overAccessories()){
+  //  menu.AccessoriesTab(width);
+  //}
+  //if(overShoes()){
+  //  menu.ShoeTab(width);
+  //}
 }
 
 boolean overNewRound (){

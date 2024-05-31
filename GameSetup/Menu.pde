@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 public class Menu{
   Game game;
   Clothing[] closet;
@@ -8,7 +5,6 @@ public class Menu{
   public Menu(int width, int height){
     game = new Game(width,height);
     closet = game.getCloset();
-    
     fill(105);
     rect(0, 0, width/3, height, 28);
   }
