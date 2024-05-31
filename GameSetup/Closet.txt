@@ -1,9 +1,9 @@
 32GrayPolo.png
-63LightWashJeans.png
+62LightWashJeans.png
 82PinkHoodie.png
 82PurpleHoodie.png
 22RedDress.png
-42BlackFlowyTank.png
+41BlackFlowyTank.png
 65BlackCap.png
 43BellBottoms.png
 12Blackbuttondown.png

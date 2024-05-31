@@ -38,20 +38,52 @@ void mousePressed(){
   if(overBottoms()){
     menu.PantTab(width);
   }
+  if(overFace()){
+    menu.FaceTab(width);
+  }
+   if (overHair()){
+    menu.HairTab(width);
+  }
+  /*
+  if(overAccessories()){
+    menu.AccessoriesTab(width);
+  }
+  */
+  if(overShoes()){
+    menu.ShoeTab(width);
+  }
 }
 
+
 boolean overNewRound (){
-return (mouseX >= 600 && mouseX <= 900 && 
-      mouseY >= 900 && mouseY <= 1000);
+return false;
+/*
+(mouseX >= 600 && mouseX <= 900 && 
+      mouseY >= 600 && mouseY <= 900);
+      */
 } 
 
 boolean overTops(){
-  return (mouseX >= 100 && mouseX <= 350 && 
-      mouseY >= 600 && mouseY <= 700);
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= 0 && mouseY <= height/6-20);
 }
-
 boolean overBottoms(){
-  return (mouseX >= 400 && mouseX <= 650 && 
-      mouseY >= 600 && mouseY <= 700);
-
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= height/6 && mouseY <= 2*height/6-20);
+}
+boolean overFace(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= height/6 && mouseY <= 3*height/6-20);
+}
+boolean overHair(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= height/6 && mouseY <= 4*height/6-20);
+}
+boolean overAccessories(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= height/6 && mouseY <= 5*height/6-20);
+}
+boolean overShoes(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= height/6 && mouseY <= 6*height/6-20);
 }

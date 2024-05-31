@@ -16,7 +16,7 @@ public class Game{
     public Game(int width, int height){
         avatar = new Avatar();
         currTheme = (int) Math.random()*10;
-        closetString = loadStrings("clothingNames.txt");
+        closetString = loadStrings("Closet.txt");
         closetClothing = new Clothing[closetString.length];
         for (int i = 0; i < closetString.length; i++){
           closetClothing[i] = new Clothing(currTheme,closetString[i]);
@@ -27,12 +27,14 @@ public class Game{
       for(int i = 0; i < 6; i++){
         fill(255);
         rect(width/3,0 + vertSpace, 50, (height/6)-20); 
+        /*
         if(i == 0){
           textSize(50);
           fill(0);
           rotate(PI/2);
           text("Tops", width/3, 0 + vertSpace);
         }
+        */
         vertSpace += (height/6);
       }
       

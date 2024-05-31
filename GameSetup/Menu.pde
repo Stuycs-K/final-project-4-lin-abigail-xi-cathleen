@@ -18,7 +18,7 @@ public class Menu{
     PImage item;
     item = loadImage(filename);
     rect(50 + x, 80 + y, 220, 220, 28);
-    image(item,50 + x,80 + y,220,220);    
+3
   } //creates box with clothes image inside of it
  
   public void TopsTab(int width){
