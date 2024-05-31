@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
 import java.io.File;
@@ -12,7 +11,7 @@ public class Game{
     private String[] closetString;
     private Clothing[] closetClothing;
 
-    public Game(){
+    public Game(int width, int height){
         avatar = new Avatar();
         currTheme = (int) Math.random()*10;
         closetString = loadStrings("clothingNames.txt");
@@ -21,6 +20,20 @@ public class Game{
           closetClothing[i] = new Clothing(0,0+(i*100),currTheme,closetString[i]);
         }
         // start off clothing at 0,0, which will be moved to respective places
+       int vertSpace = 0;
+      for(int i = 0; i < 6; i++){
+        fill(255);
+        rect(width/3,0 + vertSpace, 50, (height/6)-20); 
+        /*
+        if(i == 0){
+          textSize(50);
+          fill(0);
+          rotate(PI/2);
+          text("Tops", width/3, 0 + vertSpace);
+        }
+        */
+        vertSpace += (height/6);
+      }
     }
     
     // WIP!!!
@@ -28,6 +41,7 @@ public class Game{
     public void newRound(){
         currTheme = (int) Math.random()*10;
         avatar = new Avatar();
+        System.out.println ("Pressed Button");
 
         // closet will be randomized here given enough time
     }

@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 Menu menu;
+Game play;
 Avatar av;
 Scanner Closet;
 
@@ -10,7 +11,8 @@ int numClothes = 4;
 
 void setup(){
   size(1200,900);
-  menu = new Menu();
+  menu = new Menu(width,height);
+  play = new Game(width,height);
   av = new Avatar();
   
   clothes = menu.getCloset(); // grabs the closet from menu
@@ -69,4 +71,62 @@ void mousePressed(){
     }
     clothes[numClothes-1] = last;
   }
+    fill(255);
+  rect(0,0,width/3, height, 28);
+  if (overNewRound()){
+    play.newRound();
+  }
+  if (overTops()){
+    menu.TopsTab(width);
+  }
+  if(overBottoms()){
+    menu.PantTab(width);
+  }
+  if(overFace()){
+    menu.FaceTab(width);
+  }
+   if (overHair()){
+    menu.HairTab(width);
+  }
+  
+  if(overAccessories()){
+    menu.AccessoriesTab(width);
+  }
+  
+  if(overShoes()){
+    menu.ShoeTab(width);
+  }
+}
+
+boolean overNewRound (){
+return false;
+/*
+(mouseX >= 600 && mouseX <= 900 && 
+      mouseY >= 600 && mouseY <= 900);
+      */
+} 
+
+boolean overTops(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= 0 && mouseY <= height/6-20);
+}
+boolean overBottoms(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= height/6 && mouseY <= 2*height/6-20);
+}
+boolean overFace(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= 2*height/6 && mouseY <= 3*height/6-20);
+}
+boolean overHair(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= 3*height/6 && mouseY <= 4*height/6-20);
+}
+boolean overAccessories(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= 4*height/6 && mouseY <= 5*height/6-20);
+}
+boolean overShoes(){
+return (mouseX >= width/3 && mouseX <= width/3+50 && 
+      mouseY >= 5*height/6 && mouseY <= 6*height/6-20);
 }

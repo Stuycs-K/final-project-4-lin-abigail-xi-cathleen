@@ -88,12 +88,12 @@ public class Clothing{
     }
   }
   
-  public void createBox(int x, int y){
+  public void create(int x, int y){
   //  rect(120 + x, 80 + y, 220, 220, 28);
     image(image,x,y,image.width*constant,image.height*constant);
   }
   
   void display(){
-    createBox(x, y);
+    create(x, y);
   }
 }
