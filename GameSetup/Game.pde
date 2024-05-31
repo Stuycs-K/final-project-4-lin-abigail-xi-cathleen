@@ -18,7 +18,7 @@ public class Game{
         closetString = loadStrings("clothingNames.txt");
         closetClothing = new Clothing[closetString.length];
         for (int i = 0; i < closetString.length; i++){
-          closetClothing[i] = new Clothing(0+(i*300),0,currTheme,closetString[i]);
+          closetClothing[i] = new Clothing(0,0+(i*100),currTheme,closetString[i]);
         }
         // start off clothing at 0,0, which will be moved to respective places
     }

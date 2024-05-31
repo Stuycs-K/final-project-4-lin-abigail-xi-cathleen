@@ -6,7 +6,7 @@ Avatar av;
 Scanner Closet;
 
 Clothing[] clothes;
-int numClothes = 10;
+int numClothes = 4;
 
 void setup(){
   size(1200,900);
@@ -25,14 +25,21 @@ void draw(){
    for (int i = 0; i < numClothes; i++){
      clothes[i].display();
    }
+   textSize(50);
+   fill(0);
+   stroke(0);
+   text("MouseX: "+mouseX,20,100);
+   text("MouseY: "+mouseY,20,150);
 }
 
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
+    if (mouseX > width*0.6 && clothes[i].clicked == true){
+      //println(clothes[i].getFile());
+      //println("DONE!");
+      clothes[i].snapOn();
+    }
     clothes[i].clicked = false;
-    if (clothes
-  }
-  if (clothes[i].getX() > width/3*2 && clothes){
   }
 }
 
@@ -44,12 +51,16 @@ void mouseDragged(){
 
 void mousePressed(){
   int idx = -1;
+  //boolean moveable = true;
   for (int i = numClothes-1; i >= 0; i--){
-    clothes[i].checkClicked(mouseX,mouseY);
-    if (clothes[i].clicked){
-      idx = i;
-      break;
-    }
+    //if (clothes[i].isMoveable()){
+    //  moveable = false;
+      clothes[i].checkClicked(mouseX,mouseY);
+      if (clothes[i].clicked){
+        idx = i;
+        break;
+      }
+    //}
   }
   if (idx != -1){
     Clothing last = clothes[idx];

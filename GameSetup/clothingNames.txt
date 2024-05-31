@@ -1,3 +1,4 @@
+00Emo.png
 02BlackLeatherJacket.png
 04CombatBoots.png
 22RedDress.png

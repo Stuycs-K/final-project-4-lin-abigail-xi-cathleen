@@ -1,10 +1,4 @@
-02BlackLeatherJacket.png
-04CombatBoots.png
-22RedDress.png
-32GrayPolo.png
-42BlackFlowyTank.png
-43BellBottoms.png
-63LightWashJeans.png
-65BlackCap.png
-82PinkHoodie.png
-82PurpleHoodie.png
+00Emo.png
+12Blackbuttondown.png
+14BrownLoafers.png
+33BrownPlaidSkirt.png
