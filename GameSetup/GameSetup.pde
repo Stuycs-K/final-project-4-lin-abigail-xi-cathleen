@@ -51,18 +51,18 @@ void mouseDragged(){
 
 void mousePressed(){
   int idx = -1;
-  boolean moveable = true;
+  //boolean moveable = true;
   for (int i = numClothes-1; i >= 0; i--){
-    if (clothes[i].isMoveable()){
-      moveable = false;
+    //if (clothes[i].isMoveable()){
+    //  moveable = false;
       clothes[i].checkClicked(mouseX,mouseY);
       if (clothes[i].clicked){
         idx = i;
         break;
       }
-    }
+    //}
   }
-  if (idx != -1 && moveable){
+  if (idx != -1){
     Clothing last = clothes[idx];
     for (int i = idx+1; i < numClothes; i++){
       clothes[i-1] = clothes[i];
