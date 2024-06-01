@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Avatar{
-    public ArrayList<Clothing> clothesOn;
-    public int rating;
+    int rating;
     PImage avatar;
+    ArrayList<Clothing> clothesOn;
 
     public Avatar(){
         clothesOn = new ArrayList<Clothing>();
