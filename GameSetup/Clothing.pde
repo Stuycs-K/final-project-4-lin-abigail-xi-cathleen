@@ -2,20 +2,23 @@ public class Clothing{
     int themeIndex;
     String filename;
     int points;
-    int x,y;
+    int x,y,sX,sY;
     boolean clicked;
     boolean onAvatar;
     boolean moveable;
     PImage image;
     int type;
     float constant;
+    boolean shown;
+    
+   /* 33BrownPlaidSkirt.png
+63DenimShorts.png
+83BlueJeans.png */
 
-    public Clothing(int xcoord, int ycoord, int theme, String file){
+    public Clothing(int _x, int _y, int theme, String file){
         themeIndex = theme;
         filename = file;
         points = 0;
-        x = xcoord;
-        y = ycoord;
         clicked = false;
         image = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
@@ -24,6 +27,11 @@ public class Clothing{
         if (type == 3){ constant = 0.5; }
         if (type == 4){ constant = 0.48; }
         moveable = true;
+        sX = Integer.parseInt(filename.substring(2,5));
+        sY = Integer.parseInt(filename.substring(6,9));
+        x = _x;
+        y = _y;
+        shown = true;
     }
 
     public int getPoints(){
@@ -62,22 +70,8 @@ public class Clothing{
   
   void snapOn(){
     moveable = false;
-    if (type == 0){
-      x = 780;
-      y = 10;
-    }
-    if (type == 2){
-      x = 760;
-      y = 145;
-    }
-    if (type == 3){
-      x = 780;
-      y = 300;
-    }
-    if (type == 4){
-      x = 833;
-      y = 685;
-    }
+    x = sX;
+    y = sY;
   }
   
   public void create(int x, int y){

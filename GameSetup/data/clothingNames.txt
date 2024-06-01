@@ -1,6 +1,3 @@
-00Emo.png
-12Blackbuttondown.png
-14BrownLoafers.png
-33BrownPlaidSkirt.png
-63DenimShorts.png
-83BlueJeans.png
+00780.010Emo.png
+12760.145Blackbuttondown.png
+14833.685BrownLoafers.png

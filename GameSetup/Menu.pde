@@ -3,7 +3,7 @@ public class Menu{
   Clothing[] closet;
   
   public Menu(int width, int height){
-    game = new Game(width,height);
+    game = new Game();
     closet = game.getCloset();
     fill(105);
     rect(0, 0, width/3, height, 28);
@@ -21,6 +21,8 @@ public class Menu{
   } //creates box with clothes image inside of it
   
   public void switchTabs(int i, int w){ // switches tabs based on index + width
+    fill(255);
+    stroke(0);
     if (i == 0) HairTab(w);
     if (i == 1) FaceTab(w);
     if (i == 2) TopsTab(w);

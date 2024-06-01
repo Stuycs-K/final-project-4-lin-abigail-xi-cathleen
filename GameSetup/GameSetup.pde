@@ -2,24 +2,23 @@ Menu menu;
 Game play;
 Avatar av;
 Clothing[] clothes;
-int numClothes = 4;
+int numClothes = 3;
 int currTab = 0;
 
 void setup(){
   size(1200,900);
   menu = new Menu(width,height);
-  play = new Game(width,height);
+  play = new Game();
   av = new Avatar();
   clothes = menu.getCloset(); // grabs the closet from menu
 }
 
 void draw(){
-   //background(123);
+   background(255);
    drawTab();
    av.display();
-   for (int i = 0; i < numClothes; i++){
-     clothes[i].display();
-   }
+   displayClothes();
+   
    //textSize(50);
    //fill(0);
    //stroke(0);
@@ -32,6 +31,7 @@ void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
     if (mouseX > width*0.6 && clothes[i].clicked == true){
       clothes[i].snapOn();
+      //av.addClothing(clothes[i]);
     }
     clothes[i].clicked = false;
   }
@@ -59,16 +59,7 @@ void mousePressed(){
     }
     clothes[numClothes-1] = last;
   }
-}
-
-void drawTab(){
-  // switch tabs with currTab like menu.switchTabs(currTab,width);
-  fill (255);
-  rect(0,0,width/3, height, 28);
-  if (overNewRound()){
-    play.newRound();
-  }
-  else if (overHair()){
+  if (overHair()){
     currTab = 0;
   }
   else if(overFace()){
@@ -86,7 +77,41 @@ void drawTab(){
   else if(overAccessories()){
     currTab = 5;
   }
-  menu.switchTabs(currTab,width);
+}
+
+void drawTab(){
+  // switch tabs with currTab like menu.switchTabs(currTab,width);
+  fill(255);
+  stroke(0);
+  rect(0,0,width/3, height, 28);
+  //if (overNewRound()){
+  //  play.newRound();
+  //}
+  //menu.switchTabs(currTab,width);
+  
+  // rectangles for the menu + names, will be added soon by cathleen
+  int vertSpace = 0;
+   for(int i = 0; i < 6; i++){
+      fill(255);
+      rect(width/3,0 + vertSpace, 50, (height/6)-20); 
+    /*
+    if(i == 0){
+      textSize(50);
+      fill(0);
+      rotate(PI/2);
+      text("Tops", width/3, 0 + vertSpace);
+    }
+    */
+       vertSpace += (height/6);
+    }
+}
+
+void displayClothes(){
+  for (int i = 0; i < numClothes; i++){
+      if (currTab == clothes[i].getType()){
+          clothes[i].display();
+       }
+  }
 }
 
 boolean overNewRound (){
