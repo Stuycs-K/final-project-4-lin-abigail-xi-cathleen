@@ -108,7 +108,7 @@ void drawTab(){
 
 void displayClothes(){
   for (int i = 0; i < numClothes; i++){
-      if (currTab == clothes[i].getType() || clothes[i].isOn()){
+      if (currTab == clothes[i].getType() || clothes[i].isOn() == true){
           clothes[i].display();
        }
   }
