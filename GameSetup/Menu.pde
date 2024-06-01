@@ -20,6 +20,15 @@ public class Menu{
     image(item,50 + x,80 + y,220,220);    
   } //creates box with clothes image inside of it
   
+  public void switchTabs(int i, int w){ // switches tabs based on index + width
+    if (i == 0) HairTab(w);
+    if (i == 1) FaceTab(w);
+    if (i == 2) TopsTab(w);
+    if (i == 3) PantTab(w);
+    if (i == 4) ShoeTab(w);
+    if (i == 5) AccessoriesTab(w);
+  }
+  
   public void TopsTab(int width){
     int xSpace = 0;
     int ySpace = 0;
