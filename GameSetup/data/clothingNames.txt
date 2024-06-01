@@ -2,3 +2,5 @@
 12Blackbuttondown.png
 14BrownLoafers.png
 33BrownPlaidSkirt.png
+63DenimShorts.png
+83BlueJeans.png

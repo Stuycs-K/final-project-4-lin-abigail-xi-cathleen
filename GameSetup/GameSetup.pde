@@ -1,10 +1,9 @@
 Menu menu;
 Game play;
 Avatar av;
-Scanner Closet;
 Clothing[] clothes;
 int numClothes = 4;
-int old = 0;
+int currTab = 0;
 
 void setup(){
   size(1200,900);
@@ -16,10 +15,11 @@ void setup(){
 
 void draw(){
    //background(123);
+   drawTab();
    av.display();
-   //for (int i = 0; i < numClothes; i++){
-   //  clothes[i].display();
-   //}
+   for (int i = 0; i < numClothes; i++){
+     clothes[i].display();
+   }
    //textSize(50);
    //fill(0);
    //stroke(0);
@@ -59,34 +59,34 @@ void mousePressed(){
     }
     clothes[numClothes-1] = last;
   }
-  
-       // cathleens code to merge
+}
+
+void drawTab(){
+  // switch tabs with currTab like menu.switchTabs(currTab,width);
   fill (255);
   rect(0,0,width/3, height, 28);
   if (overNewRound()){
     play.newRound();
   }
   else if (overHair()){
-    old = 0;
+    currTab = 0;
   }
   else if(overFace()){
-    old = 1;
+    currTab = 1;
   }
   else if (overTop()){
-    old = 2;
+    currTab = 2;
   }
   else if(overPant()){
-    old = 3;
+    currTab = 3;
   }
   else if(overShoes()){
-    old = 4;
+    currTab = 4;
   }
   else if(overAccessories()){
-    old = 5;
+    currTab = 5;
   }
-    // switch tabs with old like menu.switchTabs(old,width);
-  menu.switchTabs(old,width);
-  println(old);
+  menu.switchTabs(currTab,width);
 }
 
 boolean overNewRound (){

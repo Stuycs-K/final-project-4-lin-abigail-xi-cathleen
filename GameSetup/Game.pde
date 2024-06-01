@@ -20,6 +20,7 @@ public class Game{
           closetClothing[i] = new Clothing(0,0+(i*100),currTheme,closetString[i]);
         }
         
+        // rectangles for the menu + names, will be added soon by cathleen
        int vertSpace = 0;
        for(int i = 0; i < 6; i++){
           fill(255);
