@@ -1,6 +1,9 @@
 00780.010Emo.png
 12760.145Blackbuttondown.png
-14833.685BrownLoafers.png
+82760.145PinkHoodie.png
+92760.145PinkBlouse.png
+12760.145ShirtwithTie.png
 33780.010BrownPlaidSkirt.png
-63280.010DenimShorts.png
-83280.020BlueJeans.png
+63780.010DenimShorts.png
+83780.010BlueJeans.png
+14833.685BrownLoafers.png

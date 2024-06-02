@@ -2,7 +2,7 @@ Menu menu;
 Game play;
 Avatar av;
 Clothing[] clothes;
-int numClothes = 3;
+int numClothes = 9;
 int currTab = 0;
 
 void setup(){
@@ -18,13 +18,14 @@ void draw(){
    drawTab();
    av.display();
    displayClothes();
+  
+   textSize(50);
+   fill(0);
+   stroke(0);
+   text("MouseX: "+mouseX,20,100);
+   text("MouseY: "+mouseY,20,150);
+   println("MouseX: "+mouseX+"MouseY: "+mouseY);
    
-   //textSize(50);
-   //fill(0);
-   //stroke(0);
-   //text("MouseX: "+mouseX,20,100);
-   //text("MouseY: "+mouseY,20,150);
-   //println("MouseX: "+mouseX+"MouseY: "+mouseY);
 }
 
 void mouseReleased(){
@@ -59,6 +60,11 @@ void mousePressed(){
     }
     clothes[numClothes-1] = last;
   }
+  /*
+  if(overNewRound()){
+    play.newRound();
+  }
+  */
   if (overHair()){
     currTab = 0;
     println("pressed on Hair");
@@ -157,14 +163,13 @@ void displayClothes(){
        }
   }
 }
-
-boolean overNewRound (){
-return false;
 /*
-(mouseX >= 600 && mouseX <= 900 && 
+boolean overNewRound (){
+return (mouseX >= 600 && mouseX <= 900 && 
       mouseY >= 600 && mouseY <= 900);
-      */
+
 } 
+*/
 
 boolean overHair(){
 return (mouseX >= width/3 && mouseX <= width/3+50 && 

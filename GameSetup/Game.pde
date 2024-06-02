@@ -18,7 +18,6 @@ public class Game{
     
     public void newRound(){
         currTheme = (int) Math.random()*10;
-        avatar = new Avatar();
         System.out.println ("Pressed Button");
 
         // closet will be randomized here given enough time
