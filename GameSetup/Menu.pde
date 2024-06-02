@@ -16,17 +16,27 @@ public class Menu{
   public void createBox(String filename, int x, int y){
     PImage item;
     item = loadImage(filename);
-    rect(50 + x, 80 + y, 220, 220, 28);
-    image(item,50 + x,80 + y,220,220);    
+    rect(25 + x, 40 + y, 150, 150, 28);
+    image(item,25 + x,40 + y,150,150);    
   } //creates box with clothes image inside of it
   
   public void switchTabs(int i, int w){ // switches tabs based on index + width
     fill(255);
     stroke(0);
-    if (i == 0) HairTab(w);
-    if (i == 1) FaceTab(w);
+    if (i == 0){
+      HairTab(w);
+      println("clicked on hair tab");
+    }
+    if (i == 1) {
+    FaceTab(w);
+    println("clicked on faceTab");
+    }
     if (i == 2) TopsTab(w);
-    if (i == 3) PantTab(w);
+    if (i == 3){
+    PantTab(w);
+    System.out.println("clicked on pant tab");
+  }
+    
     if (i == 4) ShoeTab(w);
     if (i == 5) AccessoriesTab(w);
   }

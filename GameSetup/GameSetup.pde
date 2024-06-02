@@ -61,6 +61,7 @@ void mousePressed(){
   }
   if (overHair()){
     currTab = 0;
+    println("pressed on Hair");
   }
   else if(overFace()){
     currTab = 1;
@@ -70,6 +71,7 @@ void mousePressed(){
   }
   else if(overPant()){
     currTab = 3;
+    println("pressed on Pant");
   }
   else if(overShoes()){
     currTab = 4;
@@ -87,21 +89,63 @@ void drawTab(){
   //if (overNewRound()){
   //  play.newRound();
   //}
-  //menu.switchTabs(currTab,width);
+ // menu.switchTabs(currTab,width);
   
   // rectangles for the menu + names, will be added soon by cathleen
   int vertSpace = 0;
    for(int i = 0; i < 6; i++){
       fill(255);
-      rect(width/3,0 + vertSpace, 50, (height/6)-20); 
-    /*
+      rect(width/3,0 + vertSpace, 100, (height/6)-20,20); 
+    
     if(i == 0){
+       pushMatrix();
       textSize(50);
-      fill(0);
-      rotate(PI/2);
-      text("Tops", width/3, 0 + vertSpace);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Hair", 0,100);
+    popMatrix();
     }
-    */
+     if(i == 1){
+        pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Face", 0,100);
+    popMatrix();
+    }
+     if(i == 2){
+         pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Top", 0,100);
+    popMatrix();
+    }
+     if(i == 3){
+      pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Pants", 0,100);
+    popMatrix();
+    }
+     if(i == 4){
+      pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Shoe", 0,100);
+    popMatrix();
+    }
+     if(i == 5){
+      pushMatrix();
+      textSize(25);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Accessories", 0,100);
+    popMatrix();
+    }
+
        vertSpace += (height/6);
     }
 }
