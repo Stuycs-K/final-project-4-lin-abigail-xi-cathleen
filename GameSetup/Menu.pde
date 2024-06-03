@@ -16,8 +16,8 @@ public class Menu{
   public void createBox(String filename, int x, int y){
     PImage item;
     item = loadImage(filename);
-    rect(25 + x, 40 + y, 150, 150, 28);
-    image(item,25 + x,40 + y,150,150);    
+    rect(25 + x, 40 + y, 200, 200, 28);
+    image(item,25 + x,40 + y,200,200);    
   } //creates box with clothes image inside of it
   
   public void switchTabs(int i, int w){ // switches tabs based on index + width
