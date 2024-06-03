@@ -1,4 +1,5 @@
 00780.010Emo.png
+90780.010BrownPonytail.png
 12760.145Blackbuttondown.png
 82760.145PinkHoodie.png
 92760.145PinkBlouse.png
@@ -6,4 +7,7 @@
 33780.010BrownPlaidSkirt.png
 63780.010DenimShorts.png
 83780.010BlueJeans.png
+33780.010PurplePearlSkirt.png
 14833.685BrownLoafers.png
+25780.010GoldNecklace.png
+55780.010Scarf.png

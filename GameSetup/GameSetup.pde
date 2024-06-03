@@ -2,7 +2,7 @@ Menu menu;
 Game play;
 Avatar av;
 Clothing[] clothes;
-int numClothes = 9;
+int numClothes = 13;
 int currTab = 0;
 
 void setup(){
@@ -18,14 +18,22 @@ void draw(){
    drawTab();
    av.display();
    displayClothes();
-  
+  /*
+    pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/2, 100);
+      text(play.getThemeName(),0,0);
+      popMatrix();
+      */
+    /*
    textSize(50);
    fill(0);
    stroke(0);
    text("MouseX: "+mouseX,20,100);
    text("MouseY: "+mouseY,20,150);
    println("MouseX: "+mouseX+"MouseY: "+mouseY);
-   
+   */
 }
 
 void mouseReleased(){
@@ -98,12 +106,14 @@ void drawTab(){
  // menu.switchTabs(currTab,width);
   
   // rectangles for the menu + names, will be added soon by cathleen
+
   int vertSpace = 0;
    for(int i = 0; i < 6; i++){
       fill(255);
       rect(width/3,0 + vertSpace, 100, (height/6)-20,20); 
-    
+   
     if(i == 0){
+
        pushMatrix();
       textSize(50);
       fill(0); 
