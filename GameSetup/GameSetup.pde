@@ -2,7 +2,7 @@ Menu menu;
 Game play;
 Avatar av;
 Clothing[] clothes;
-int numClothes = 9;
+int numClothes = 10;
 int currTab = 0;
 
 void setup(){

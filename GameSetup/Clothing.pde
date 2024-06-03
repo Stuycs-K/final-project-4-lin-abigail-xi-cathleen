@@ -23,6 +23,7 @@ public class Clothing{
         image = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
         if (type == 0){ constant = 0.75; }
+        if (type == 1){ constant = 0.1; }
         if (type == 2){ constant = 0.57; }
         if (type == 3){ constant = 0.5; }
         if (type == 4){ constant = 0.48; }
