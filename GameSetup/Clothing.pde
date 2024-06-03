@@ -23,10 +23,11 @@ public class Clothing{
         image = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
         if (type == 0){ constant = 0.75; }
+        if (type == 1){ constant = 0.1; }
         if (type == 2){ constant = 0.57; }
         if (type == 3){ constant = 0.5; }
         if (type == 4){ constant = 0.48; }
-        moveable = true;
+        moveable = false;
         sX = Integer.parseInt(filename.substring(2,5));
         sY = Integer.parseInt(filename.substring(6,9));
         x = _x;
@@ -77,6 +78,19 @@ public class Clothing{
   
   boolean isOn(){
     return on;
+  }
+  
+  void setMoveable(){
+    if (moveable) moveable = false;
+    else moveable = true;
+  }
+  
+  void setX(int _x){
+    x = _x;
+  }
+  
+  void setY(int _y){
+    y = _y;
   }
   
   public void create(int x, int y){
