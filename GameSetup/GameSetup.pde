@@ -135,7 +135,7 @@ void drawTab(){
     }
      if(i == 3){
       pushMatrix();
-      textSize(50);
+      textSize(40);
       fill(0); 
       translate(width/3, 0+vertSpace);
       text("Pants", 0,100);
@@ -143,7 +143,7 @@ void drawTab(){
     }
      if(i == 4){
       pushMatrix();
-      textSize(50);
+      textSize(40);
       fill(0); 
       translate(width/3, 0+vertSpace);
       text("Shoe", 0,100);
@@ -151,7 +151,7 @@ void drawTab(){
     }
      if(i == 5){
       pushMatrix();
-      textSize(25);
+      textSize(20);
       fill(0); 
       translate(width/3, 0+vertSpace);
       text("Accessories", 0,100);
