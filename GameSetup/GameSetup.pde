@@ -2,6 +2,7 @@ Menu menu;
 Game play;
 Avatar av;
 Clothing[] clothes;
+boolean press = false;
 
 int numClothes = 16;
 int currTab = 0;
@@ -14,6 +15,15 @@ void setup(){
   clothes = menu.getCloset(); // grabs the closet from menu
   setClothes();
 }
+
+//void keyPressed(){
+//  press = true;
+//  setClothes();
+//}
+
+//void keyReleased(){
+//  press = false;
+//}
 
 void draw(){
    background(255);
