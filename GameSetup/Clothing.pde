@@ -79,6 +79,19 @@ public class Clothing{
     return on;
   }
   
+  void setMoveable(){
+    if (moveable) moveable = false;
+    else moveable = true;
+  }
+  
+  void setX(int _x){
+    x = _x;
+  }
+  
+  void setY(int _y){
+    y = _y;
+  }
+  
   public void create(int x, int y){
   //  rect(120 + x, 80 + y, 220, 220, 28);
     image(image,x,y,image.width*constant,image.height*constant);

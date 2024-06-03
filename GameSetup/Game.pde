@@ -11,8 +11,7 @@ public class Game{
         closetString = loadStrings("clothingNames.txt");
         closetClothing = new Clothing[closetString.length];
         for (int i = 0; i < closetString.length; i++){
-          int j = 0;
-          closetClothing[i] = new Clothing(width/6,j*height/4,currTheme,closetString[i]);
+          closetClothing[i] = new Clothing(width/10,0,currTheme,closetString[i]);
         }
     }
     

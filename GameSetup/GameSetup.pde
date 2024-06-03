@@ -11,6 +11,7 @@ void setup(){
   play = new Game();
   av = new Avatar();
   clothes = menu.getCloset(); // grabs the closet from menu
+  setClothes();
 }
 
 void draw(){
@@ -159,10 +160,27 @@ void drawTab(){
 void displayClothes(){
   for (int i = 0; i < numClothes; i++){
       if (currTab == clothes[i].getType() || clothes[i].isOn()){
+          clothes[i].setMoveable();
           clothes[i].display();
           //println(clothes[i].getFile());
        }
   }
+}
+
+void setClothes(){ // very important type is in order!!!     
+        int pos = 0;
+        int t = 0;
+        for (int i = 0; i < numClothes; i++){
+           if (t == clothes[i].getType()){
+              clothes[i].setY(pos*190);
+              pos++;
+           }
+           else {
+             t++;
+             pos = 0;
+             i--;
+           }
+        }
 }
 /*
 boolean overNewRound (){
