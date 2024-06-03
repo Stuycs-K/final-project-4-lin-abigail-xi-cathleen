@@ -19,12 +19,12 @@ void draw(){
    av.display();
    displayClothes();
   
-   textSize(50);
-   fill(0);
-   stroke(0);
-   text("MouseX: "+mouseX,20,100);
-   text("MouseY: "+mouseY,20,150);
-   println("MouseX: "+mouseX+"MouseY: "+mouseY);
+   //textSize(50);
+   //fill(0);
+   //stroke(0);
+   //text("MouseX: "+mouseX,20,100);
+   //text("MouseY: "+mouseY,20,150);
+   //println("MouseX: "+mouseX+"MouseY: "+mouseY);
    
 }
 
@@ -67,7 +67,7 @@ void mousePressed(){
   */
   if (overHair()){
     currTab = 0;
-    println("pressed on Hair");
+    //println("pressed on Hair");
   }
   else if(overFace()){
     currTab = 1;
@@ -77,7 +77,7 @@ void mousePressed(){
   }
   else if(overPant()){
     currTab = 3;
-    println("pressed on Pant");
+    //println("pressed on Pant");
   }
   else if(overShoes()){
     currTab = 4;
@@ -160,6 +160,7 @@ void displayClothes(){
   for (int i = 0; i < numClothes; i++){
       if (currTab == clothes[i].getType() || clothes[i].isOn()){
           clothes[i].display();
+          //println(clothes[i].getFile());
        }
   }
 }

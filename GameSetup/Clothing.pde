@@ -26,7 +26,7 @@ public class Clothing{
         if (type == 2){ constant = 0.57; }
         if (type == 3){ constant = 0.5; }
         if (type == 4){ constant = 0.48; }
-        moveable = true;
+        moveable = false;
         sX = Integer.parseInt(filename.substring(2,5));
         sY = Integer.parseInt(filename.substring(6,9));
         x = _x;
