@@ -11,15 +11,16 @@ public class Game{
         closetString = loadStrings("clothingNames.txt");
         closetClothing = new Clothing[closetString.length];
         for (int i = 0; i < closetString.length; i++){
-          int j = 0;
-          closetClothing[i] = new Clothing(width/6,j*height/4,currTheme,closetString[i]);
+          closetClothing[i] = new Clothing(width/10,0,currTheme,closetString[i]);
         }
+        /*
       pushMatrix();
       textSize(50);
       fill(0); 
       translate(width/2, 100);
       text(themes[currTheme],0,0);
       popMatrix();
+      */
     }
     
     public void newRound(){
