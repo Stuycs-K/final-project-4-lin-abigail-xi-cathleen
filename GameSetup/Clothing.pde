@@ -55,7 +55,8 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
-    if (cx > x && cx < x+image.width*constant && cy > y && cy < y+image.height*constant && moveable){
+    if (cx > x && cx < x+image.width && cy > y && cy < y+image.height && moveable){
+      //println(filename);
       clicked = true;
     }
     else {
@@ -113,5 +114,7 @@ public class Clothing{
   
   void display(){
     create(x, y);
+    fill(255,0,0,100);
+    rect(x,y,image.width,image.height); // cx > x && cx < x+image.width*constant && cy > y && cy < y+image.height*constant
   }
 }

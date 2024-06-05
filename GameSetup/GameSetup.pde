@@ -46,10 +46,11 @@ void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
     if (mouseX > width*0.6 && clothes[i].clicked){
       clothes[i].snapOn();
-      //av.addClothing(clothes[i]);
+      av.addPoints(clothes[i].getPoints()); // points
     }
     else if (clothes[i].clicked) {
       clothes[i].snapBack();
+      av.removePoints(clothes[i].getPoints());
     }
     clothes[i].clicked = false;
   }
@@ -70,6 +71,7 @@ void mousePressed(){
         break;
       }
   }
+  //println(idx);
   if (idx != -1){
     Clothing last = clothes[idx];
     for (int i = idx+1; i < numClothes; i++){
