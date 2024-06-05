@@ -28,6 +28,7 @@ public class Clothing{
         if (type == 3){ constant = 0.5; }
         if (type == 4){ constant = 0.48; }
         if (type == 5){ constant = 0.5;}
+        image.resize((int)(image.width*constant),(int)(image.height*constant));
         moveable = false;
         sX = Integer.parseInt(filename.substring(2,5));
         sY = Integer.parseInt(filename.substring(6,9));
@@ -96,7 +97,7 @@ public class Clothing{
   
   public void create(int x, int y){
   //  rect(120 + x, 80 + y, 220, 220, 28);
-    image(image,x,y,image.width*constant,image.height*constant);
+    image(image,x,y);
   }
   
   void display(){

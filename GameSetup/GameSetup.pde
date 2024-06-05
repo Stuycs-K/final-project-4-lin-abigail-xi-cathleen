@@ -3,7 +3,6 @@ Game play;
 Avatar av;
 Clothing[] clothes;
 boolean press = false;
-
 int numClothes = 16;
 int currTab = 0;
 
@@ -26,6 +25,7 @@ void setup(){
 //}
 
 void draw(){
+  println(frameRate);
    background(255);
    drawTab();
    av.display();

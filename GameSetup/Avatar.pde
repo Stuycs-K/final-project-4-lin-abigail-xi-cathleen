@@ -9,6 +9,7 @@ public class Avatar{
         clothesOn = new ArrayList<Clothing>();
         rating = 0;
         avatar = loadImage("avatar.png");
+        avatar.resize((int)(avatar.width/3.5),(int)(avatar.height/3.5));
     }
 
     public boolean addClothing(Clothing c){
@@ -66,6 +67,6 @@ public class Avatar{
     }
     
     void display(){
-      image(avatar,width/2,0,avatar.width/3.5,avatar.height/3.5);
+      image(avatar,width/2,0);
     }
 }
