@@ -10,6 +10,7 @@ public class Clothing{
     int type;
     float constant;
     boolean on;
+    int position;
     
    /* 33BrownPlaidSkirt.png
 63DenimShorts.png
@@ -63,7 +64,7 @@ public class Clothing{
   }
   
   void update(){
-    if (clicked) {
+    if (clicked && moveable) {
      float dx = mouseX - pmouseX;
      float dy = mouseY - pmouseY;
      x += dx;
@@ -76,6 +77,12 @@ public class Clothing{
     on = true;
     x = sX;
     y = sY;
+  }
+  
+  void snapBack(){
+    on = false;
+    x = width/10;
+    y = position*200; // fix later
   }
   
   boolean isOn(){
@@ -93,6 +100,10 @@ public class Clothing{
   
   void setY(int _y){
     y = _y;
+  }
+  
+  void setPosition(int p){
+    position = p;
   }
   
   public void create(int x, int y){
