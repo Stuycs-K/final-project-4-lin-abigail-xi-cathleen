@@ -30,16 +30,6 @@ public class Game{
         // closet will be randomized here given enough time
     }
 
-    public void selectClothing(int index){
-        avatar.addClothing(closetClothing[index]);
-        // Menu.addX();
-    }
-
-    public void removeClothing(int index){
-      avatar.removeClothing(closetClothing[index]);
-      // Menu.removeX();
-    }
-
     public Clothing[] getCloset(){
         return closetClothing;
     }

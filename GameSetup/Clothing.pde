@@ -1,5 +1,6 @@
 public class Clothing{
     int themeIndex;
+    int clothTheme;
     String filename;
     int points;
     int x,y,sX,sY;
@@ -23,6 +24,7 @@ public class Clothing{
         clicked = false;
         image = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
+        clothTheme = Integer.parseInt(filename.substring(0,1));
         if (type == 0){ constant = 0.75; }
         if (type == 1){ constant = 0.1; }
         if (type == 2){ constant = 0.57; }
@@ -55,7 +57,7 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
-    if (cx > x && cx < x+image.width && cy > y && cy < y+image.height && moveable){
+    if (cx >= x && cx <= x+image.width && cy >= y && cy <= y+image.height && moveable){
       //println(filename);
       clicked = true;
     }
@@ -90,6 +92,10 @@ public class Clothing{
     return on;
   }
   
+  boolean onTheme(){
+    return clothTheme == themeIndex;
+  }
+  
   void setMoveable(){
     if (moveable) moveable = false;
     else moveable = true;
@@ -114,7 +120,7 @@ public class Clothing{
   
   void display(){
     create(x, y);
-    fill(255,0,0,100);
+    fill(255,0,0,100); // red for debugging
     rect(x,y,image.width,image.height); // cx > x && cx < x+image.width*constant && cy > y && cy < y+image.height*constant
   }
 }

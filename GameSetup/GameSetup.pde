@@ -30,6 +30,7 @@ void draw(){
    drawTab();
    av.display();
    displayClothes();
+   println(av.getPoints());
 
   
    //textSize(50);
@@ -45,12 +46,16 @@ void draw(){
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
     if (mouseX > width*0.6 && clothes[i].clicked){
+      if (!clothes[i].isOn() && clothes[i].onTheme()){
+        av.addPoints(); // points
+      }
       clothes[i].snapOn();
-      av.addPoints(clothes[i].getPoints()); // points
     }
     else if (clothes[i].clicked) {
+      if (clothes[i].isOn() && clothes[i].onTheme()){
+        av.removePoints();
+      }
       clothes[i].snapBack();
-      av.removePoints(clothes[i].getPoints());
     }
     clothes[i].clicked = false;
   }
@@ -71,7 +76,7 @@ void mousePressed(){
         break;
       }
   }
-  //println(idx);
+  println(idx);
   if (idx != -1){
     Clothing last = clothes[idx];
     for (int i = idx+1; i < numClothes; i++){

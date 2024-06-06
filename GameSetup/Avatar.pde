@@ -9,12 +9,16 @@ public class Avatar{
         avatar.resize((int)(avatar.width/3.5),(int)(avatar.height/3.5));
     }
     
-    void addPoints(int p){
-      points += p;
+    void addPoints(){
+      points += 10;
     }
     
-    void removePoints(int p){
-      points -= p;
+    void removePoints(){
+      points -= 10;
+    }
+    
+    int getPoints(){
+      return points;
     }
 
     public int getRating(){
@@ -44,10 +48,6 @@ public class Avatar{
         else {
             rating = 5;
         }
-    }
-
-    public void resetOutfit(){  
-        clothesOn = new ArrayList<Clothing>();
     }
     
     void display(){
