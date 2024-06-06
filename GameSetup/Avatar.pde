@@ -50,6 +50,7 @@ public class Avatar{
         //clothesOn = new ArrayList<Clothing>();
     }
     
+    
     void display(){
       image(avatar,width/2,0);
     }

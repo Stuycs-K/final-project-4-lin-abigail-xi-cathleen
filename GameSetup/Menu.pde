@@ -1,146 +1,84 @@
 public class Menu{
   Game game;
   Clothing[] closet;
+  Button button;
   
-  public Menu(int width, int height){
+  public Menu(){
     game = new Game();
     closet = game.getCloset();
-    fill(105);
-    rect(0, 0, width/3, height, 28);
   }
   
    public Clothing[] getCloset(){
         return closet;
     }
-  
-  public void createBox(String filename, int x, int y){
-    PImage item;
-    item = loadImage(filename);
-    rect(25 + x, 40 + y, 200, 200, 28);
-    image(item,25 + x,40 + y,200,200);    
-  } //creates box with clothes image inside of it
-  
-  public void switchTabs(int i, int w){ // switches tabs based on index + width
-    fill(255);
-    stroke(0);
-    if (i == 0){
-      HairTab(w);
-      println("clicked on hair tab");
-    }
-    if (i == 1) {
-    FaceTab(w);
-    println("clicked on faceTab");
-    }
-    if (i == 2) TopsTab(w);
-    if (i == 3){
-    PantTab(w);
-    System.out.println("clicked on pant tab");
-  }
     
-    if (i == 4) ShoeTab(w);
-    if (i == 5) AccessoriesTab(w);
-  }
-  
-  public void TopsTab(int width){
-    int xSpace = 0;
-    int ySpace = 0;
-    for (int i = 0; i < closet.length; i++){
-      Clothing c = closet[i];
-       if (c.getType() == 2){
-          createBox(c.getFile(), xSpace, ySpace);
-          if(xSpace >= width/3-270){
-            ySpace += 300;
-            xSpace = 0;
-          }
-          else{
-            xSpace += width/6;
-          }
-       }
+    public Button getButton(){
+      return button;
     }
-  }    // each tab is called from a button in GameSetup
-  public void AccessoriesTab(int width){
-    int xSpace = 0;
-    int ySpace = 0;
-    for (int i = 0; i < closet.length; i++){
-      Clothing c = closet[i];
-       if (c.getType() == 5){
-          createBox(c.getFile(), xSpace, ySpace);
-          if(xSpace > width/3-270){
-            ySpace += 300;
-            xSpace = 0;
-          }
-          else{
-            xSpace += width/6;
-          }
-       }
+    
+   public void drawMenu(){
+   fill(105);
+   rect(0, 0, width/3, height, 28);
+    int vertSpace = 0;
+   for(int i = 0; i < 6; i++){
+      fill(255);
+      rect(width/3,0 + vertSpace, 100, (height/6)-20,20); 
+   
+    if(i == 0){
+      if (button.overHair()){
+      fill(204);
+      rect(width/3,height/6, 100, (height/6)-20,20);
     }
-  }
-  public void HairTab(int width){
-    int xSpace = 0;
-    int ySpace = 0;
-    for (int i = 0; i < closet.length; i++){
-      Clothing c = closet[i];
-       if (c.getType() == 0){
-          createBox(c.getFile(), xSpace, ySpace);
-          if(xSpace > width/3-270){
-            ySpace += 300;
-            xSpace = 0;
-          }
-          else{
-            xSpace += width/6;
-          }
-       }
+       pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Hair", 0,100);
+    popMatrix();
     }
-  }
-  public void PantTab(int width){
-    int xSpace = 0;
-    int ySpace = 0;
-    for (int i = 0; i < closet.length; i++){
-      Clothing c = closet[i];
-       if (c.getType() == 3){
-          createBox(c.getFile(), xSpace, ySpace);
-          if(xSpace > width/3-270){
-            ySpace += 300;
-            xSpace = 0;
-          }
-          else{
-            xSpace += width/6;
-          }
-       }
+     if(i == 1){
+        pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Face", 0,100);
+    popMatrix();
     }
-  }
-  public void FaceTab(int width){
-    int xSpace = 0;
-    int ySpace = 0;
-    for (int i = 0; i < closet.length; i++){
-      Clothing c = closet[i];
-       if (c.getType() == 1){
-          createBox(c.getFile(), xSpace, ySpace);
-          if(xSpace > width/3-270){
-            ySpace += 300;
-            xSpace = 0;
-          }
-          else{
-            xSpace += width/6;
-          }
-       }
+     if(i == 2){
+         pushMatrix();
+      textSize(50);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Top", 0,100);
+    popMatrix();
     }
-  }
-  public void ShoeTab(int width){
-    int xSpace = 0;
-    int ySpace = 0;
-    for (int i = 0; i < closet.length; i++){
-      Clothing c = closet[i];
-       if (c.getType() == 4){
-          createBox(c.getFile(), xSpace, ySpace);
-          if(xSpace > width/3-270){
-            ySpace += 300;
-            xSpace = 0;
-          }
-          else{
-            xSpace += width/6;
-          }
-       }
+     if(i == 3){
+      pushMatrix();
+      textSize(40);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Pants", 0,100);
+    popMatrix();
     }
-}
+     if(i == 4){
+      pushMatrix();
+      textSize(40);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Shoe", 0,100);
+    popMatrix();
+    }
+     if(i == 5){
+      pushMatrix();
+      textSize(20);
+      fill(0); 
+      translate(width/3, 0+vertSpace);
+      text("Accessories", 0,100);
+    popMatrix();
+    }
+
+       vertSpace += (height/6);
+    }
+   }
+
 }

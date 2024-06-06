@@ -1,6 +1,7 @@
 Menu menu;
 Game play;
 Avatar av;
+Button button;
 Clothing[] clothes;
 boolean press = false;
 int numClothes = 16;
@@ -8,9 +9,10 @@ int currTab = 0;
 
 void setup(){
   size(1200,900);
-  menu = new Menu(width,height);
+  menu = new Menu();
   play = new Game();
   av = new Avatar();
+  button = menu.getButton();
   clothes = menu.getCloset(); // grabs the closet from menu
   setClothes();
 }
@@ -27,6 +29,7 @@ void setup(){
 void draw(){
   //println(frameRate);
    background(255);
+   menu.drawMenu();
    drawTab();
    av.display();
    displayClothes();
@@ -84,29 +87,29 @@ void mousePressed(){
     play.newRound();
   }
   */
-  if (overHair()){
+  if (button.overHair()){
     undisplayClothes();
     currTab = 0;
     //println("pressed on Hair");
   }
-  else if(overFace()){
+  else if(button.overFace()){
     undisplayClothes();
     currTab = 1;
   }
-  else if (overTop()){
+  else if (button.overTop()){
     undisplayClothes();
     currTab = 2;
   }
-  else if(overPant()){
+  else if(button.overPant()){
     undisplayClothes();
     currTab = 3;
     //println("pressed on Pant");
   }
-  else if(overShoes()){
+  else if(button.overShoes()){
     undisplayClothes();
     currTab = 4;
   }
-  else if(overAccessories()){
+  else if(button.overAccessories()){
     undisplayClothes();
     currTab = 5;
   }
@@ -122,65 +125,6 @@ void drawTab(){
   //}
  // menu.switchTabs(currTab,width);
   
-  // rectangles for the menu + names, will be added soon by cathleen
-
-  int vertSpace = 0;
-   for(int i = 0; i < 6; i++){
-      fill(255);
-      rect(width/3,0 + vertSpace, 100, (height/6)-20,20); 
-   
-    if(i == 0){
-
-       pushMatrix();
-      textSize(50);
-      fill(0); 
-      translate(width/3, 0+vertSpace);
-      text("Hair", 0,100);
-    popMatrix();
-    }
-     if(i == 1){
-        pushMatrix();
-      textSize(50);
-      fill(0); 
-      translate(width/3, 0+vertSpace);
-      text("Face", 0,100);
-    popMatrix();
-    }
-     if(i == 2){
-         pushMatrix();
-      textSize(50);
-      fill(0); 
-      translate(width/3, 0+vertSpace);
-      text("Top", 0,100);
-    popMatrix();
-    }
-     if(i == 3){
-      pushMatrix();
-      textSize(40);
-      fill(0); 
-      translate(width/3, 0+vertSpace);
-      text("Pants", 0,100);
-    popMatrix();
-    }
-     if(i == 4){
-      pushMatrix();
-      textSize(40);
-      fill(0); 
-      translate(width/3, 0+vertSpace);
-      text("Shoe", 0,100);
-    popMatrix();
-    }
-     if(i == 5){
-      pushMatrix();
-      textSize(20);
-      fill(0); 
-      translate(width/3, 0+vertSpace);
-      text("Accessories", 0,100);
-    popMatrix();
-    }
-
-       vertSpace += (height/6);
-    }
 }
 
 void displayClothes(){
@@ -217,36 +161,4 @@ void setClothes(){ // very important type is in order!!!
              i--;
            }
         }
-}
-/*
-boolean overNewRound (){
-return (mouseX >= 600 && mouseX <= 900 && 
-      mouseY >= 600 && mouseY <= 900);
-
-} 
-*/
-
-boolean overHair(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= 0 && mouseY <= height/6-20);
-}
-boolean overFace(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= height/6 && mouseY <= 2*height/6-20);
-}
-boolean overTop(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= 2*height/6 && mouseY <= 3*height/6-20);
-}
-boolean overPant(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= 3*height/6 && mouseY <= 4*height/6-20);
-}
-boolean overShoes(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= 4*height/6 && mouseY <= 5*height/6-20);
-}
-boolean overAccessories(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
-      mouseY >= 5*height/6 && mouseY <= 6*height/6-20);
 }

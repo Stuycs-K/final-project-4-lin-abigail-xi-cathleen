@@ -1,4 +1,18 @@
 public class Button{
+  public void hover(){
+    if (overHair()){
+      fill(192);
+      rect(width/3,height/6, 100, (height/6)-20,20);
+    }
+    else if(overFace()){
+      fill(192);
+      rect(width/3,2*height/6-20, 100, (height/6)-20,20);
+    }
+    else{
+      fill(255);
+    }
+
+  }
   boolean overHair(){
 return (mouseX >= width/3 && mouseX <= width/3+50 && 
       mouseY >= 0 && mouseY <= height/6-20);
