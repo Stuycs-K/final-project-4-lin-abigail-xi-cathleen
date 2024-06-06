@@ -6,6 +6,7 @@ public class Menu{
   public Menu(){
     game = new Game();
     closet = game.getCloset();
+    button = new Button();
   }
   
    public Clothing[] getCloset(){
@@ -19,16 +20,21 @@ public class Menu{
    public void drawMenu(){
    fill(105);
    rect(0, 0, width/3, height, 28);
+   button.drawButton();
+   }
+   /*
     int vertSpace = 0;
-   for(int i = 0; i < 6; i++){
-      fill(255);
-      rect(width/3,0 + vertSpace, 100, (height/6)-20,20); 
+   for(int i = 0; i < 6; i++){ 
    
     if(i == 0){
       if (button.overHair()){
-      fill(204);
-      rect(width/3,height/6, 100, (height/6)-20,20);
-    }
+        fill(204);
+      }
+      else{
+        fill(255);
+      }
+      rect(width/3,0 + vertSpace, 100, (height/6)-20,20); 
+
        pushMatrix();
       textSize(50);
       fill(0); 
@@ -80,5 +86,5 @@ public class Menu{
        vertSpace += (height/6);
     }
    }
-
+*/
 }
