@@ -47,7 +47,7 @@ public class Avatar{
     }
 
     public void resetOutfit(){  
-        clothesOn = new ArrayList<Clothing>();
+        //clothesOn = new ArrayList<Clothing>();
     }
     
     void display(){
