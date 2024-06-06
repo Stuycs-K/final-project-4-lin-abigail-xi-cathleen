@@ -104,27 +104,27 @@ public class Button{
     }
    }
   boolean overHair(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
+return (mouseX >= width/3 && mouseX <= width/3+100 && 
       mouseY >= 0 && mouseY <= height/6-20);
 }
 boolean overFace(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
+return (mouseX >= width/3 && mouseX <= width/3+100 && 
       mouseY >= height/6 && mouseY <= 2*height/6-20);
 }
 boolean overTop(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
+return (mouseX >= width/3 && mouseX <= width/3+100 && 
       mouseY >= 2*height/6 && mouseY <= 3*height/6-20);
 }
 boolean overPant(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
+return (mouseX >= width/3 && mouseX <= width/3+100 && 
       mouseY >= 3*height/6 && mouseY <= 4*height/6-20);
 }
 boolean overShoes(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
+return (mouseX >= width/3 && mouseX <= width/3+100 && 
       mouseY >= 4*height/6 && mouseY <= 5*height/6-20);
 }
 boolean overAccessories(){
-return (mouseX >= width/3 && mouseX <= width/3+50 && 
+return (mouseX >= width/3 && mouseX <= width/3+100 && 
       mouseY >= 5*height/6 && mouseY <= 6*height/6-20);
 }
 
