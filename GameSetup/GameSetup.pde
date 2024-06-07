@@ -5,6 +5,7 @@ Clothing[] clothes;
 boolean press = false;
 int numClothes = 16;
 int currTab = 0;
+int countdown;
 
 void setup(){
   size(1200,900);
@@ -13,10 +14,12 @@ void setup(){
   button = menu.getButton();
   clothes = menu.getCloset(); // grabs the closet from menu
   setClothes();
+  countdown = 500 ;
 }
 
 void draw(){
   //println(frameRate);
+  if(countdown>0){
    background(255);
    menu.drawMenu();
    drawTab();
@@ -25,6 +28,15 @@ void draw(){
    
    av.calculateRating();
    println(av.getPoints());
+   countdown--;
+   System.out.println(countdown);
+  }
+  else{
+    fill(255);
+    rect(0,0,1200,900);
+    fill(0);
+    text("Game ended", 100, 100); 
+  }
    //println("Rating: "+av.getRating());
 
   
