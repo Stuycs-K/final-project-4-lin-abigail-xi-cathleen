@@ -7,6 +7,7 @@ public class Clothing{
     boolean onAvatar;
     boolean moveable;
     PImage image;
+    PImage onClothImage;
     int type;
     float constant;
     boolean on;
@@ -17,6 +18,7 @@ public class Clothing{
         filename = file;
         clicked = false;
         image = loadImage(file);
+        onClothImage = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
         clothTheme = Integer.parseInt(filename.substring(0,1));
         if (type == 0){ constant = 0.75; }
@@ -25,7 +27,8 @@ public class Clothing{
         if (type == 3){ constant = 0.5; }
         if (type == 4){ constant = 0.48; }
         if (type == 5){ constant = 0.5;}
-        image.resize((int)(image.width*constant),(int)(image.height*constant));
+        onClothImage.resize((int)(image.width*constant),(int)(image.height*constant));
+        image.resize(image.width/2,image.height/2);
         moveable = false;
         sX = Integer.parseInt(filename.substring(2,5));
         sY = Integer.parseInt(filename.substring(6,9));
@@ -43,17 +46,29 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
-    if (cx >= x && cx <= x+image.width && cy >= y && cy <= y+image.height && moveable){
+    if (on){
+          if (cx >= x && cx <= x+onClothImage.width && cy >= y && cy <= y+onClothImage.height && moveable){
+      println(filename);
+      clicked = true;
+    }
+    else {
+      clicked = false;
+    }
+    }
+    else {
+          if (cx >= x && cx <= x+image.width && cy >= y && cy <= y+image.height && moveable){
       //println(filename);
       clicked = true;
     }
     else {
       clicked = false;
     }
+    }
   }
   
   void update(){
     if (clicked && moveable) {
+      println(filename);
      float dx = mouseX - pmouseX;
      float dy = mouseY - pmouseY;
      x += dx;
@@ -101,12 +116,18 @@ public class Clothing{
   
   void create(int x, int y){
   //  rect(120 + x, 80 + y, 220, 220, 28);
-    image(image,x,y);
+            fill(255,0,0,100); // red for debugging
+    if (on){
+      image(onClothImage,x,y);
+    rect(x,y,onClothImage.width,onClothImage.height);
+    }
+    else {
+      image(image,x,y);
+          rect(x,y,image.width,image.height);
+    }
   }
   
   void display(){
     create(x, y);
-    fill(255,0,0,100); // red for debugging
-    rect(x,y,image.width,image.height); // cx > x && cx < x+image.width*constant && cy > y && cy < y+image.height*constant
   }
 }

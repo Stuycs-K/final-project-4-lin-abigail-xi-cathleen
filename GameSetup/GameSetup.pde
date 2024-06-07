@@ -24,7 +24,7 @@ void draw(){
    displayClothes();
    
    av.calculateRating();
-   println(av.getPoints());
+   //println(av.getPoints());
    //println("Rating: "+av.getRating());
 
   
@@ -131,9 +131,9 @@ void drawTab(){
 void displayClothes(){
   for (int i = 0; i < numClothes; i++){
       if (currTab == clothes[i].getType() || clothes[i].isOn()){
+          //println(clothes[i].getFile());
           clothes[i].setMoveable();
           clothes[i].display();
-          //println(clothes[i].getFile());
        }
   }
 }
@@ -163,3 +163,4 @@ void setClothes(){ // very important type is in order!!!
            }
         }
 }
+// resizing when you click, print theme, better asthethics (at the end), organize the menu, 
