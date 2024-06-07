@@ -1,9 +1,15 @@
 00780.010Emo.png
-11870.110Happy.png
+40793.030BlondBob.png
+11870.090Happy.png
+11850.080Wink.png
 12760.145Blackbuttondown.png
 82760.145PinkHoodie.png
 92800.170PinkBlouse.png
 12760.145ShirtwithTie.png
+33800.310PurplePearlSkirt.png
+25830.130GoldNecklace.png
+55760.115Scarf.png
+55795.130WhiteShawl.png
 33800.310BrownPlaidSkirt.png
 63830.310DenimShorts.png
 83832.300BlueJeans.png

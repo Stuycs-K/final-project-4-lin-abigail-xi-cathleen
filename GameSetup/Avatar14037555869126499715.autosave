@@ -17,10 +17,6 @@ public class Avatar{
       points -= 10;
     }
     
-    void resetPoints(){
-      points = 0;
-    }
-    
     int getPoints(){
       return points;
     }
@@ -30,9 +26,6 @@ public class Avatar{
     }
 
     public void calculateRating(){
-        // max theme points is 90 if you only have 1 theme clothing per section
-        // needs points, # of clothing, 
-        // precondition: points is nonnegative
         if (points == 0){
             rating = 0;
         }
