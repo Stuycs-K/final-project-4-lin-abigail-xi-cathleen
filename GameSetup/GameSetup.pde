@@ -1,5 +1,4 @@
 Menu menu;
-Game play;
 Avatar av;
 Clothing[] clothes;
 boolean press = false;
@@ -9,7 +8,6 @@ int currTab = 0;
 void setup(){
   size(1200,900);
   menu = new Menu(width,height);
-  play = new Game();
   av = new Avatar();
   clothes = menu.getCloset(); // grabs the closet from menu
   setClothes();
@@ -30,7 +28,10 @@ void draw(){
    drawTab();
    av.display();
    displayClothes();
-   println(av.getPoints());
+   
+   av.calculateRating();
+   //println(av.getPoints());
+   println("Rating: "+av.getRating());
 
   
    //textSize(50);
@@ -62,14 +63,14 @@ void mouseReleased(){
 }
 
 void mouseDragged(){
-  println("dragged");
+  //println("dragged");
   for (int i = 0; i < numClothes; i++){
     clothes[i].update();
   }
 }
 
 void mousePressed(){
-  println("pressed");
+  //println("pressed");
   int idx = -1;
   for (int i = numClothes-1; i >= 0; i--){
       clothes[i].checkClicked(mouseX,mouseY);
@@ -78,7 +79,7 @@ void mousePressed(){
         break;
       }
   }
-  println(idx);
+  //println(idx);
   if (idx != -1){
     Clothing last = clothes[idx];
     for (int i = idx+1; i < numClothes; i++){

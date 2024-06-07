@@ -57,13 +57,8 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
-<<<<<<< HEAD
-      println("reached");
-    if (cx >= x && cx <= x+image.width*constant && cy >= y && cy <= y+image.height*constant){ //  && moveable
-=======
     if (cx >= x && cx <= x+image.width && cy >= y && cy <= y+image.height && moveable){
       //println(filename);
->>>>>>> d9b35db813fb186274de772138cdac106c8b915f
       clicked = true;
     }
     else {
@@ -72,13 +67,7 @@ public class Clothing{
   }
   
   void update(){
-<<<<<<< HEAD
-    //println(clicked);
-    if (clicked) {
-      //println("moving");
-=======
     if (clicked && moveable) {
->>>>>>> d9b35db813fb186274de772138cdac106c8b915f
      float dx = mouseX - pmouseX;
      float dy = mouseY - pmouseY;
      x += dx;

@@ -28,21 +28,20 @@ public class Avatar{
     public void calculateRating(){
         // max theme points is 90 if you only have 1 theme clothing per section
         // needs points, # of clothing, 
-        // precondition: pointTotal is nonnegative
-        int pointTotal = 0;
-        if (pointTotal == 0){
+        // precondition: points is nonnegative
+        if (points == 0){
             rating = 0;
         }
-        else if (pointTotal <= 10){
+        else if (points <= 10){
             rating = 1;
         }
-        else if (pointTotal <= 20){
+        else if (points <= 20){
             rating = 2;
         }
-        else if (pointTotal <= 50){
+        else if (points <= 50){
             rating = 3;
         }
-        else if (pointTotal <= 70){
+        else if (points <= 70){
             rating = 4;
         }
         else {

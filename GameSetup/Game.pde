@@ -1,13 +1,12 @@
 public class Game{
     private final String[] themes = new String[]{"Emo", "Academia", "MissUniverse", "OldMoney", "Y2K", "ApologyVideo", "StreetStyle", "Gym", "Cozy", "MeanGirl"};
     private int currTheme;
-    private Avatar avatar;
     private String[] closetString;
     private Clothing[] closetClothing;
 
     public Game(){
-        avatar = new Avatar();
-        currTheme = (int) Math.random()*10;
+        currTheme = (int) (Math.random()*10);
+        println(currTheme);
         closetString = loadStrings("clothingNames.txt");
         closetClothing = new Clothing[closetString.length];
         for (int i = 0; i < closetString.length; i++){
@@ -42,8 +41,5 @@ public class Game{
         return themes[currTheme];
     }
 
-    public Avatar getAvatar(){
-        return avatar;
-    }
 
 }
