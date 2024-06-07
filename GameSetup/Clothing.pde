@@ -54,7 +54,8 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
-    if (cx > x && cx < x+image.width*constant && cy > y && cy < y+image.height*constant && moveable){
+      println("reached");
+    if (cx >= x && cx <= x+image.width*constant && cy >= y && cy <= y+image.height*constant){ //  && moveable
       clicked = true;
     }
     else {
@@ -63,7 +64,9 @@ public class Clothing{
   }
   
   void update(){
+    //println(clicked);
     if (clicked) {
+      //println("moving");
      float dx = mouseX - pmouseX;
      float dy = mouseY - pmouseY;
      x += dx;

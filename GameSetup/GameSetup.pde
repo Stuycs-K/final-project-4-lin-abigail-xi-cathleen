@@ -25,7 +25,7 @@ void setup(){
 //}
 
 void draw(){
-  println(frameRate);
+  //println(frameRate);
    background(255);
    drawTab();
    av.display();
@@ -53,12 +53,14 @@ void mouseReleased(){
 }
 
 void mouseDragged(){
+  println("dragged");
   for (int i = 0; i < numClothes; i++){
     clothes[i].update();
   }
 }
 
 void mousePressed(){
+  println("pressed");
   int idx = -1;
   for (int i = numClothes-1; i >= 0; i--){
       clothes[i].checkClicked(mouseX,mouseY);
