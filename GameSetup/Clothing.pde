@@ -1,5 +1,6 @@
 public class Clothing{
     int themeIndex;
+    int clothTheme;
     String filename;
     int points;
     int x,y,sX,sY;
@@ -10,6 +11,7 @@ public class Clothing{
     int type;
     float constant;
     boolean on;
+    int position;
     
    /* 33BrownPlaidSkirt.png
 63DenimShorts.png
@@ -22,6 +24,7 @@ public class Clothing{
         clicked = false;
         image = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
+        clothTheme = Integer.parseInt(filename.substring(0,1));
         if (type == 0){ constant = 0.75; }
         if (type == 1){ constant = 0.1; }
         if (type == 2){ constant = 0.57; }
@@ -54,8 +57,13 @@ public class Clothing{
     }
     
     void checkClicked(float cx, float cy){
+<<<<<<< HEAD
       println("reached");
     if (cx >= x && cx <= x+image.width*constant && cy >= y && cy <= y+image.height*constant){ //  && moveable
+=======
+    if (cx >= x && cx <= x+image.width && cy >= y && cy <= y+image.height && moveable){
+      //println(filename);
+>>>>>>> d9b35db813fb186274de772138cdac106c8b915f
       clicked = true;
     }
     else {
@@ -64,9 +72,13 @@ public class Clothing{
   }
   
   void update(){
+<<<<<<< HEAD
     //println(clicked);
     if (clicked) {
       //println("moving");
+=======
+    if (clicked && moveable) {
+>>>>>>> d9b35db813fb186274de772138cdac106c8b915f
      float dx = mouseX - pmouseX;
      float dy = mouseY - pmouseY;
      x += dx;
@@ -81,8 +93,18 @@ public class Clothing{
     y = sY;
   }
   
+  void snapBack(){
+    on = false;
+    x = width/10;
+    y = position*200; // fix later
+  }
+  
   boolean isOn(){
     return on;
+  }
+  
+  boolean onTheme(){
+    return clothTheme == themeIndex;
   }
   
   void setMoveable(){
@@ -98,6 +120,10 @@ public class Clothing{
     y = _y;
   }
   
+  void setPosition(int p){
+    position = p;
+  }
+  
   public void create(int x, int y){
   //  rect(120 + x, 80 + y, 220, 220, 28);
     image(image,x,y);
@@ -105,5 +131,7 @@ public class Clothing{
   
   void display(){
     create(x, y);
+    fill(255,0,0,100); // red for debugging
+    rect(x,y,image.width,image.height); // cx > x && cx < x+image.width*constant && cy > y && cy < y+image.height*constant
   }
 }

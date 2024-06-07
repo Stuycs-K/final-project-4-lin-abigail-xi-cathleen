@@ -1,33 +1,24 @@
-import java.util.ArrayList;
-
 public class Avatar{
     int rating;
+    int points;
     PImage avatar;
-    ArrayList<Clothing> clothesOn;
 
     public Avatar(){
-        clothesOn = new ArrayList<Clothing>();
         rating = 0;
         avatar = loadImage("avatar.png");
         avatar.resize((int)(avatar.width/3.5),(int)(avatar.height/3.5));
     }
-
-    public boolean addClothing(Clothing c){
-        clothesOn.add(c);
-        return true;
+    
+    void addPoints(){
+      points += 10;
     }
-
-    public boolean removeClothing(Clothing c){
-        for (int i = 0; i < clothesOn.size(); i++){
-            if (c.getFile().equals(clothesOn.get(i).getFile())){
-                clothesOn.remove(i);
-            }
-        }
-        return true;
+    
+    void removePoints(){
+      points -= 10;
     }
-
-    public ArrayList<Clothing> getClothing(){
-        return clothesOn;
+    
+    int getPoints(){
+      return points;
     }
 
     public int getRating(){
@@ -39,9 +30,6 @@ public class Avatar{
         // needs points, # of clothing, 
         // precondition: pointTotal is nonnegative
         int pointTotal = 0;
-        for (int i = 0; i < clothesOn.size(); i++){
-            pointTotal += clothesOn.get(i).getPoints();
-        }
         if (pointTotal == 0){
             rating = 0;
         }
@@ -60,10 +48,6 @@ public class Avatar{
         else {
             rating = 5;
         }
-    }
-
-    public void resetOutfit(){  
-        clothesOn = new ArrayList<Clothing>();
     }
     
     void display(){

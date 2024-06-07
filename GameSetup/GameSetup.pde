@@ -30,6 +30,7 @@ void draw(){
    drawTab();
    av.display();
    displayClothes();
+   println(av.getPoints());
 
   
    //textSize(50);
@@ -44,9 +45,17 @@ void draw(){
 
 void mouseReleased(){
   for (int i = 0; i < numClothes; i++){
-    if (mouseX > width*0.6 && clothes[i].clicked == true){
+    if (mouseX > width*0.6 && clothes[i].clicked){
+      if (!clothes[i].isOn() && clothes[i].onTheme()){
+        av.addPoints(); // points
+      }
       clothes[i].snapOn();
-      //av.addClothing(clothes[i]);
+    }
+    else if (clothes[i].clicked) {
+      if (clothes[i].isOn() && clothes[i].onTheme()){
+        av.removePoints();
+      }
+      clothes[i].snapBack();
     }
     clothes[i].clicked = false;
   }
@@ -69,6 +78,7 @@ void mousePressed(){
         break;
       }
   }
+  println(idx);
   if (idx != -1){
     Clothing last = clothes[idx];
     for (int i = idx+1; i < numClothes; i++){
@@ -82,23 +92,29 @@ void mousePressed(){
   }
   */
   if (overHair()){
+    undisplayClothes();
     currTab = 0;
     //println("pressed on Hair");
   }
   else if(overFace()){
+    undisplayClothes();
     currTab = 1;
   }
   else if (overTop()){
+    undisplayClothes();
     currTab = 2;
   }
   else if(overPant()){
+    undisplayClothes();
     currTab = 3;
     //println("pressed on Pant");
   }
   else if(overShoes()){
+    undisplayClothes();
     currTab = 4;
   }
   else if(overAccessories()){
+    undisplayClothes();
     currTab = 5;
   }
 }
@@ -184,12 +200,22 @@ void displayClothes(){
   }
 }
 
+void undisplayClothes(){
+  for (int i = 0; i < numClothes; i++){
+       if (currTab == clothes[i].getType()){
+          clothes[i].setMoveable();
+          //println(clothes[i].getFile());
+       }
+  }
+}
+
 void setClothes(){ // very important type is in order!!!     
         int pos = 0;
         int t = 0;
         for (int i = 0; i < numClothes; i++){
            if (t == clothes[i].getType()){
-              clothes[i].setY(pos*190);
+              clothes[i].setPosition(pos);
+              clothes[i].setY(pos*200);
               pos++;
            }
            else {
