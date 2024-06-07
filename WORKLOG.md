@@ -98,6 +98,10 @@ I am working on the point system, and continuing to investigate clicking bug.
 
 Successfully implemented point system, which correctly accounts for snapping on and off. (no cheating!) Full point system has not yet been implemented.
 
+## 6/6
+
+Deleted all of the useless java files that are now unneeded. Pulled from Cathleen's code to get working button pressing for testing. Successfully finished a reset button that clears the points and clothing.
+
 ## Cathleen Xi
 
 ### 5/23
