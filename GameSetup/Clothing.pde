@@ -2,7 +2,6 @@ public class Clothing{
     int themeIndex;
     int clothTheme;
     String filename;
-    int points;
     int x,y,sX,sY;
     boolean clicked;
     boolean onAvatar;
@@ -12,15 +11,10 @@ public class Clothing{
     float constant;
     boolean on;
     int position;
-    
-   /* 33BrownPlaidSkirt.png
-63DenimShorts.png
-83BlueJeans.png */
 
     public Clothing(int _x, int _y, int theme, String file){
         themeIndex = theme;
         filename = file;
-        points = 0;
         clicked = false;
         image = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
@@ -40,19 +34,11 @@ public class Clothing{
         on = false;
     }
 
-    public int getPoints(){
-        int currTheme = Integer.parseInt(filename.substring(0,1));
-        if (currTheme == themeIndex){
-            points += 10;
-        }
-        return points;
-    }
-
-    public String getFile(){
+    String getFile(){
         return filename;
     }
     
-    public int getType(){
+    int getType(){
       return type;
     }
     
@@ -113,7 +99,7 @@ public class Clothing{
     position = p;
   }
   
-  public void create(int x, int y){
+  void create(int x, int y){
   //  rect(120 + x, 80 + y, 220, 220, 28);
     image(image,x,y);
   }

@@ -6,7 +6,7 @@
 82760.145PinkHoodie.png
 92800.170PinkBlouse.png
 12760.145ShirtwithTie.png
-33780.010PurplePearlSkirt.png
+33800.310PurplePearlSkirt.png
 25830.130GoldNecklace.png
 55760.115Scarf.png
 55795.130WhiteShawl.png
