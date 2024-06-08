@@ -9,6 +9,7 @@ int currTab = 0;
 int currentTime;
 String timerText;
 PImage background;
+PImage clothBack;
 
 void setup(){
   size(1200,900);
@@ -20,6 +21,8 @@ void setup(){
   timer = new Timer(1000);
   currentTime = 60; //amt of seconds for game
   background = loadImage("room.jpg");
+  clothBack = loadImage("clouds.jpg");
+  background.resize((int)(background.width*1.55),(int)(background.height*1.55));
 
 }
 
@@ -31,10 +34,10 @@ void draw(){
     timer.start();
   }
   
-    image(background,0,0);
+    image(background,350,-200);
+    image(clothBack,-175,0);
    
    menu.drawMenu();
-   drawTab();
    av.display();
    displayClothes();
    
@@ -146,12 +149,6 @@ void mousePressed(){
     av.resetPoints();
     // put all of the clothes back, reset points
   }
-}
-
-void drawTab(){
-  fill(255);
-  stroke(0);
-  rect(0,0,width/3, height, 28);
 }
 
 void displayClothes(){

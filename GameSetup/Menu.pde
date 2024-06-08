@@ -18,9 +18,7 @@ public class Menu{
     }
     
    public void drawMenu(){
-   fill(105);
-   rect(0, 0, width/3, height, 28);
-   button.drawButton();
+      button.drawButton();
    }
   
 }

@@ -120,11 +120,4 @@ boolean overReset(){
           mouseY >= 0 & mouseY <= 50);
 }
 
-/*
-boolean overNewRound (){
-return (mouseX >= 600 && mouseX <= 900 && 
-      mouseY >= 600 && mouseY <= 900);
-
-} 
-*/
 }
