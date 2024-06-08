@@ -7,7 +7,7 @@ boolean press = false;
 int numClothes = 16;
 int currTab = 0;
 int currentTime;
-String timerText
+String timerText;
 
 void setup(){
   size(1200,900);
@@ -18,34 +18,39 @@ void setup(){
   setClothes();
   timer = new Timer(1000);
   currentTime = 10;
+
 }
 
 void draw(){
   //println(frameRate);
-  if(currentTime < 0){
+ 
+  if(timer.complete()){
+    currentTime --;
+    timer.start();
+  }
+ 
+   background(255);
+   /*
+   menu.drawMenu();
+   drawTab();
+   av.display();
+   displayClothes();
+ */  
+  // displaying timer
+
+  fill(0);
+  textSize(48);
+  textAlign(CENTER);
+  timerText = "Time: " + currentTime + " seconds";
+  text(timerText, width/2, height/2);
+
+   if(currentTime < 0){
     fill(255);
     rect(0,0,1200,900);
     fill(0);
     text("Game ended", 100, 100); // maybe made endscreen load a method in Game
   }
-  if(timer.complete()){
-    currentTime --;
-    timer.start();
-  }
   
-   background(255);
-   menu.drawMenu();
-   drawTab();
-   av.display();
-   displayClothes();
-   
-  // displaying timer
-  fill(255);
-  textSize(48);
-  textAlign(CENTER);
-  timerText = "Time: " + currentTime + " seconds";
-  text(timerText, width/2, height/2);
-   
    av.calculateRating();
    println(av.getPoints());
 
