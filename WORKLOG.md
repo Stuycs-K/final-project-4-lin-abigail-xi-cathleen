@@ -150,3 +150,8 @@ I fixed sizing of text and buttons, and added final touches for the demo branch.
 ### 6/6
 
 I made a new button class with Mr. K's advice, and moved methods from GameSetup there. I figured out how to make button change color when mouse hovers over it. I used that to make all of the buttons change color with hover. I fixed bug with menu tabs not working all the time.
+
+### 6/7
+
+I made a new timer class and created the timer for the game. After the clock runs down, the game will display
+an end screen, which shows the rating of the outfit the user has created.
