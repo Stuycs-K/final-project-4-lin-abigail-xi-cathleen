@@ -8,6 +8,7 @@ int numClothes = 16;
 int currTab = 0;
 int currentTime;
 String timerText;
+PImage background;
 
 void setup(){
   size(1200,900);
@@ -18,6 +19,7 @@ void setup(){
   setClothes();
   timer = new Timer(1000);
   currentTime = 60; //amt of seconds for game
+  background = loadImage("room.jpg");
 
 }
 
@@ -28,8 +30,8 @@ void draw(){
     currentTime --;
     timer.start();
   }
- 
-   background(255);
+  
+    image(background,0,0);
    
    menu.drawMenu();
    drawTab();
@@ -48,13 +50,7 @@ void draw(){
   }
   
    av.calculateRating();
-<<<<<<< HEAD
    //println(av.getPoints());
-=======
-   println(av.getPoints());
-
-   
->>>>>>> 03282261598aa6610de9821367413ccdec607f7d
    //println("Rating: "+av.getRating());
 
   
