@@ -44,10 +44,7 @@ void draw(){
   text(timerText, width/2, height/2);
 
    if(currentTime < 0){
-    fill(255);
-    rect(0,0,1200,900);
-    fill(0);
-    text("Game ended", 100, 100); // maybe made endscreen load a method in Game
+    av.endGame();
   }
   
    av.calculateRating();

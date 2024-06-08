@@ -56,4 +56,15 @@ public class Avatar{
     void display(){
       image(avatar,width/2,0);
     }
+    
+    public void endGame(){
+    fill(255);
+    rect(0,0,1200,900);
+    fill(0);
+    text("Game ended", width/2, 100);
+    int result = getRating();
+    textSize(100);
+    textAlign(CENTER);
+    text("Final Rating: " + result + " Stars", width/2, height/2);
+    }
 }
