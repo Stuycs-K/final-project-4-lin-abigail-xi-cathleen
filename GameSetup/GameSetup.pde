@@ -17,7 +17,7 @@ void setup(){
   clothes = menu.getCloset(); // grabs the closet from menu
   setClothes();
   timer = new Timer(1000);
-  currentTime = 10;
+  currentTime = 60; //amt of seconds for game
 
 }
 
@@ -30,17 +30,16 @@ void draw(){
   }
  
    background(255);
-   /*
+   
    menu.drawMenu();
    drawTab();
    av.display();
    displayClothes();
- */  
+   
   // displaying timer
 
   fill(0);
   textSize(48);
-  textAlign(CENTER);
   timerText = "Time: " + currentTime + " seconds";
   text(timerText, width/2, height/2);
 
