@@ -2,9 +2,12 @@ Menu menu;
 Avatar av;
 Button button;
 Clothing[] clothes;
+Timer timer;
 boolean press = false;
 int numClothes = 16;
 int currTab = 0;
+int currentTime;
+String timerText;
 
 void setup(){
   size(1200,900);
@@ -13,18 +16,45 @@ void setup(){
   button = menu.getButton();
   clothes = menu.getCloset(); // grabs the closet from menu
   setClothes();
+  timer = new Timer(1000);
+  currentTime = 60; //amt of seconds for game
+
 }
 
 void draw(){
   //println(frameRate);
+ 
+  if(timer.complete()){
+    currentTime --;
+    timer.start();
+  }
+ 
    background(255);
+   
    menu.drawMenu();
    drawTab();
    av.display();
    displayClothes();
    
+  // displaying timer
+
+  fill(0);
+  textSize(48);
+  timerText = "Time: " + currentTime + " seconds";
+  text(timerText, width/2, height/2);
+
+   if(currentTime < 0){
+    av.endGame();
+  }
+  
    av.calculateRating();
+<<<<<<< HEAD
    //println(av.getPoints());
+=======
+   println(av.getPoints());
+
+   
+>>>>>>> 03282261598aa6610de9821367413ccdec607f7d
    //println("Rating: "+av.getRating());
 
   

@@ -28,6 +28,8 @@ public class Game{
 
         // closet will be randomized here given enough time
     }
+    
+   
 
     public Clothing[] getCloset(){
         return closetClothing;
