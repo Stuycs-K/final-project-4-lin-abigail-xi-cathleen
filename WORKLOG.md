@@ -102,6 +102,16 @@ Successfully implemented point system, which correctly accounts for snapping on 
 
 Deleted all of the useless java files that are now unneeded. Pulled from Cathleen's code to get working button pressing for testing. Successfully finished a reset button that clears the points and clothing.
 
+## 6/8
+
+I switched out all of the buttons for images pulled from game Love Nikki to make it look more asthethic. I also added a avatar and clothing background.
+
+I added a reset button with a new image, and made the theme viewable.
+
+I was able to fix the problem of the mouse not working all the time by removing the undisplay method and fixing up the display method.
+
+After a lot of tweaking, I added a full emo outfit and change the constructor of clothing to include a constant (which changes image size). I started work on the left and right buttons to move 'slides' in a tab.
+
 ## Cathleen Xi
 
 ### 5/23
