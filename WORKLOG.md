@@ -165,3 +165,8 @@ I made a new button class with Mr. K's advice, and moved methods from GameSetup 
 
 I made a new timer class and created the timer for the game. After the clock runs down, the game will display
 an end screen, which shows the rating of the outfit the user has created.
+
+### 6/9
+
+Worked on left/right buttons in Menu. I also added more clothing files. I also added stars 
+to the end screen.
