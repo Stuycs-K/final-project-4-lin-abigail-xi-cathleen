@@ -141,14 +141,29 @@ void mousePressed(){
 }
 
 void displayClothes(){
-  for (int i = 0; i < clothes[menuMode].length; i++){
-      if (currTab == clothes[menuMode][i].getType() || clothes[menuMode][i].isOn()){
-          clothes[menuMode][i].setMoveable();
-          clothes[menuMode][i].display();
-       }
-       else {
-         clothes[menuMode][i].setUnmoveable();
-       }
+  for (int i = 0; i < clothes.length; i++){
+    for(int j = 0; j < clothes[i].length; j++){
+      if( i == menuMode){
+        if (currTab == clothes[i][j].getType() || clothes[i][j].isOn()){
+          clothes[i][j].setMoveable();
+          clothes[i][j].display();
+         }
+         else {
+           clothes[i][j].setUnmoveable();
+         }
+      } // end if i == menuMode
+      else{
+        if(clothes[i][j].isOn()){
+          clothes[i][j].setMoveable();
+          clothes[i][j].display();
+        }
+        else {
+           clothes[i][j].setUnmoveable();
+         }
+      }
+      
+      
+    }
   }
 }
 
