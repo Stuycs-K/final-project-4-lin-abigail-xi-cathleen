@@ -23,11 +23,11 @@ void setup(){
   //println(Arrays.toString(clothes[1]));
   setClothes();
   timer = new Timer(1000);
-  currentTime = 60; //amt of seconds for game
+  currentTime = 30; //amt of seconds for game
   background = loadImage("room.jpg");
   clothBack = loadImage("clouds.jpg");
   background.resize((int)(background.width*1.55),(int)(background.height*1.55));
-  menuMode = 1;
+  menuMode = 0;
 }
 
 void draw(){
