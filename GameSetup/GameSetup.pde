@@ -141,31 +141,33 @@ void mousePressed(){
 }
 
 void displayClothes(){
-  for (int i = 0; i < clothes[menuMode].length; i++){
-      if (currTab == clothes[menuMode][i].getType() || clothes[menuMode][i].isOn()){
+  for (int i = 0; i < clothes.length; i++){
+    for (int j = 0; j < clothes[menuMode].length; j++){
+       if (currTab == clothes[menuMode][i].getType() || clothes[menuMode][i].isOn()){
           clothes[menuMode][i].setMoveable();
           clothes[menuMode][i].display();
        }
        else {
          clothes[menuMode][i].setUnmoveable();
        }
+    }
   }
 }
 
 void setClothes(){ // very important type is in order in clothingFiles!!!     
         int pos = 0;
         int t = 0;
-        int slide = 1;
+        //int slide = 1;
         for (int i = 0; i < clothes[menuMode].length; i++){
            if (t == clothes[menuMode][i].getType()){
-              if (pos == 5){
-                pos = 0;
-                slide++;
-                println(clothes[menuMode][i].getFile());
-              }
+              //if (pos == 5){
+              //  pos = 0;
+              //  slide++;
+              //  println(clothes[menuMode][i].getFile());
+              //}
               clothes[menuMode][i].setPosition(pos);
               clothes[menuMode][i].setY(pos*150);
-              clothes[menuMode][i].setSlide(slide);
+              //clothes[menuMode][i].setSlide(slide);
               pos++;
            }
            else {
