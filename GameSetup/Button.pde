@@ -1,15 +1,16 @@
 public class Button{
   PImage[] buttons;
-  int vert;
   
   public Button(){
-    buttons = new PImage[6];
+    buttons = new PImage[7];
     buttons[0] = loadImage("hairButton.png");
     buttons[1] = loadImage("Makeup.png");
     buttons[2] = loadImage("Tops.png");
     buttons[3] = loadImage("Bottoms.png");
     buttons[4] = loadImage("Shoes.png");
     buttons[5] = loadImage("Accessory.png");
+    buttons[6] = loadImage("remove.png");
+    buttons[6].resize(buttons[6].width/2,buttons[6].height/2);
   }
   
   public void drawButton(){
@@ -84,11 +85,11 @@ public class Button{
     else {
       fill(255);
     }
-    rect(width/2,0,100,50);
-    textSize(40);
-    fill(0);
-    text("Reset",width/2+5,40);
-    vert = vertSpace;
+    //rect(width/2,0,100,50);
+    //textSize(40);
+    //fill(0);
+    //text("Reset",width/2+5,40);
+    image(buttons[6],width-buttons[6].width,height-buttons[6].height);
    }
 
 boolean overHair(){
@@ -116,8 +117,8 @@ return (mouseX >= width/3 && mouseX <= width/3+buttons[5].width &&
       mouseY >= 5*height/6 && mouseY <= buttons[5].height+(5*height/6));
 }
 boolean overReset(){
-  return (mouseX >= width/2 && mouseX <= width/2+100 &&
-          mouseY >= 0 & mouseY <= 50);
+  return (mouseX >= width-buttons[6].width && mouseX <= width &&
+          mouseY >= height-buttons[6].height & mouseY <= height);
 }
 
 }

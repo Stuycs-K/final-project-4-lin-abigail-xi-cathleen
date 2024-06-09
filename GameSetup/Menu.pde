@@ -19,6 +19,10 @@ public class Menu{
     
    public void drawMenu(){
       button.drawButton();
+      fill(0);
+      textSize(40);
+      textAlign(CENTER);
+      text("Theme: "+game.getThemeName(), width/2+200, height-25);
    }
   
 }
