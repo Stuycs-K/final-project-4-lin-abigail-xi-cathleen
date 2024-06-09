@@ -5,8 +5,7 @@ Avatar av;
 Button button;
 Clothing[][] clothes;
 Timer timer;
-boolean press = false;
-int numClothes = 28;
+int numClothes = 26;
 int currTab = 0;
 int currentTime;
 String timerText;
@@ -27,7 +26,7 @@ void setup(){
   background = loadImage("room.jpg");
   clothBack = loadImage("clouds.jpg");
   background.resize((int)(background.width*1.55),(int)(background.height*1.55));
-  menuMode = 1;
+  menuMode = 0;
 }
 
 void draw(){
@@ -142,32 +141,46 @@ void mousePressed(){
 
 void displayClothes(){
   for (int i = 0; i < clothes.length; i++){
-    for (int j = 0; j < clothes[menuMode].length; j++){
-       if (currTab == clothes[menuMode][i].getType() || clothes[menuMode][i].isOn()){
-          clothes[menuMode][i].setMoveable();
-          clothes[menuMode][i].display();
-       }
-       else {
-         clothes[menuMode][i].setUnmoveable();
-       }
+    for(int j = 0; j < clothes[i].length; j++){
+      if( i == menuMode){
+        if (currTab == clothes[i][j].getType() || clothes[i][j].isOn()){
+          clothes[i][j].setMoveable();
+          clothes[i][j].display();
+         }
+         else {
+           clothes[i][j].setUnmoveable();
+         }
+      } // end if i == menuMode
+      else{
+        if(clothes[i][j].isOn()){
+          clothes[i][j].setMoveable();
+          clothes[i][j].display();
+        }
+        else {
+           clothes[i][j].setUnmoveable();
+         }
+      }
     }
   }
 }
 
 void setClothes(){ // very important type is in order in clothingFiles!!!     
+        //int[] n = new int[6];
+        for (int j = 0; j < clothes.length; j++){
         int pos = 0;
         int t = 0;
-        //int slide = 1;
         for (int i = 0; i < clothes[menuMode].length; i++){
-           if (t == clothes[menuMode][i].getType()){
-              //if (pos == 5){
+           if (t == clothes[j][i].getType()){
+              clothes[j][i].setPosition(pos);
+              clothes[j][i].setY(pos*150);
+              //n[clothes[j][i].getType()]++;
+              //if (n[clothes[j][i].getType()] > 5){
+              //  clothes[j][i].setSlide(1);
               //  pos = 0;
-              //  slide++;
-              //  println(clothes[menuMode][i].getFile());
               //}
-              clothes[menuMode][i].setPosition(pos);
-              clothes[menuMode][i].setY(pos*150);
-              //clothes[menuMode][i].setSlide(slide);
+              //else {
+              //  clothes[j][i].setSlide(0);
+              //}
               pos++;
            }
            else {
@@ -175,5 +188,6 @@ void setClothes(){ // very important type is in order in clothingFiles!!!
              pos = 0;
              i--;
            }
+        }
         }
 }
