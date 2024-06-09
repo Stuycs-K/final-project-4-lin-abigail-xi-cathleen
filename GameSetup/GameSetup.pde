@@ -4,7 +4,7 @@ Button button;
 Clothing[] clothes;
 Timer timer;
 boolean press = false;
-int numClothes = 16;
+int numClothes = 21;
 int currTab = 0;
 int currentTime;
 String timerText;
@@ -16,7 +16,7 @@ void setup(){
   menu = new Menu();
   av = new Avatar();
   button = menu.getButton();
-  clothes = menu.getCloset(); // grabs the closet from menu
+  clothes = menu.getCloset();
   setClothes();
   timer = new Timer(1000);
   currentTime = 60; //amt of seconds for game
@@ -53,18 +53,7 @@ void draw(){
   }
   
    av.calculateRating();
-   //println(av.getPoints());
-   //println("Rating: "+av.getRating());
-
-  
-   //textSize(50);
-   //fill(0);
-   //stroke(0);
-   //text("MouseX: "+mouseX,20,100);
-   //text("MouseY: "+mouseY,20,150);
-   //println("MouseX: "+mouseX+"MouseY: "+mouseY);
    
-
 }
 
 void mouseReleased(){
@@ -86,14 +75,12 @@ void mouseReleased(){
 }
 
 void mouseDragged(){
-  //println("dragged");
   for (int i = 0; i < numClothes; i++){
     clothes[i].update();
   }
 }
 
 void mousePressed(){
-  //println("pressed");
   int idx = -1;
   for (int i = numClothes-1; i >= 0; i--){
       clothes[i].checkClicked(mouseX,mouseY);
@@ -102,7 +89,6 @@ void mousePressed(){
         break;
       }
   }
-  //println(idx);
   if (idx != -1){
     Clothing last = clothes[idx];
     for (int i = idx+1; i < numClothes; i++){
@@ -110,11 +96,6 @@ void mousePressed(){
     }
     clothes[numClothes-1] = last;
   }
-  /*
-  if(overNewRound()){
-    play.newRound();
-  }
-  */
   if (button.overHair()){
     currTab = 0;
   }
@@ -140,12 +121,15 @@ void mousePressed(){
     av.resetPoints();
     // put all of the clothes back, reset points
   }
+  else if (button.overLeft()){
+  }
+  else if (button.overRight()){
+  }
 }
 
 void displayClothes(){
   for (int i = 0; i < numClothes; i++){
       if (currTab == clothes[i].getType() || clothes[i].isOn()){
-          //println(clothes[i].getFile());
           clothes[i].setMoveable();
           clothes[i].display();
        }
@@ -158,10 +142,17 @@ void displayClothes(){
 void setClothes(){ // very important type is in order in clothingFiles!!!     
         int pos = 0;
         int t = 0;
+        int slide = 1;
         for (int i = 0; i < numClothes; i++){
            if (t == clothes[i].getType()){
+              if (pos == 5){
+                pos = 0;
+                slide++;
+                println(clothes[i].getFile());
+              }
               clothes[i].setPosition(pos);
-              clothes[i].setY(pos*200);
+              clothes[i].setY(pos*150);
+              clothes[i].setSlide(slide);
               pos++;
            }
            else {
@@ -171,4 +162,3 @@ void setClothes(){ // very important type is in order in clothingFiles!!!
            }
         }
 }
-// resizing when you click, print theme, better asthethics (at the end), organize the menu, 

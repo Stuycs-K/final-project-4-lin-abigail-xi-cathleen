@@ -12,6 +12,7 @@ public class Clothing{
     float constant;
     boolean on;
     int position;
+    int slide;
 
     public Clothing(int _x, int _y, int theme, String file){
         themeIndex = theme;
@@ -21,14 +22,9 @@ public class Clothing{
         onClothImage = loadImage(file);
         type = Integer.parseInt(filename.substring(1,2));
         clothTheme = Integer.parseInt(filename.substring(0,1));
-        if (type == 0){ constant = 0.75; }
-        if (type == 1){ constant = 0.1; }
-        if (type == 2){ constant = 0.57; }
-        if (type == 3){ constant = 0.5; }
-        if (type == 4){ constant = 0.48; }
-        if (type == 5){ constant = 0.5;}
+        constant = (Integer.parseInt(filename.substring(10,13))) / 100.0;
         onClothImage.resize((int)(image.width*constant),(int)(image.height*constant));
-        image.resize(200,200);
+        image.resize(150,150);
         moveable = false;
         sX = Integer.parseInt(filename.substring(2,5));
         sY = Integer.parseInt(filename.substring(6,9));
@@ -48,7 +44,7 @@ public class Clothing{
     void checkClicked(float cx, float cy){
     if (on){
       if (cx >= x && cx <= x+onClothImage.width && cy >= y && cy <= y+onClothImage.height && moveable){
-        println(filename);
+        //println(filename);
         clicked = true;
       }
       else {
@@ -86,7 +82,7 @@ public class Clothing{
   void snapBack(){
     on = false;
     x = width/10;
-    y = position*200; // fix later
+    y = position*150;
   }
   
   boolean isOn(){
@@ -117,16 +113,19 @@ public class Clothing{
     position = p;
   }
   
+  void setSlide(int s){
+    slide = s;
+  }
+  
   void create(int x, int y){
-  //  rect(120 + x, 80 + y, 220, 220, 28);
-            fill(255,0,0,100); // red for debugging
+            //fill(255,0,0,100); // red for debugging
     if (on){
       image(onClothImage,x,y);
-    rect(x,y,onClothImage.width,onClothImage.height);
+    //rect(x,y,onClothImage.width,onClothImage.height);
     }
     else {
       image(image,x,y);
-          rect(x,y,image.width,image.height);
+          //rect(x,y,image.width,image.height);
     }
   }
   

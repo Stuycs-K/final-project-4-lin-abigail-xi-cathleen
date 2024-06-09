@@ -5,7 +5,7 @@ public class Avatar{
 
     public Avatar(){
         rating = 0;
-        avatar = loadImage("avatar.png");
+        avatar = loadImage("avatar2.png");
         avatar.resize((int)(avatar.width/3.5),(int)(avatar.height/3.5));
     }
     
