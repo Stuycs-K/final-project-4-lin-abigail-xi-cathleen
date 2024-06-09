@@ -20,7 +20,7 @@ void setup(){
   av = new Avatar();
   button = menu.getButton();
   clothes = menu.getCloset();
-  println(Arrays.toString(clothes[1]));
+  //println(Arrays.toString(clothes[1]));
   setClothes();
   timer = new Timer(1000);
   currentTime = 60; //amt of seconds for game
@@ -93,12 +93,13 @@ void mousePressed(){
         break;
       }
   }
+  println("idx" + idx);
   if (idx != -1){
     Clothing last = clothes[menuMode][idx];
     for (int i = idx+1; i < clothes[menuMode].length; i++){
       clothes[menuMode][i-1] = clothes[menuMode][i];
     }
-    clothes[menuMode][numClothes-1] = last;
+    clothes[menuMode][clothes[menuMode].length-1] = last;
   }
   if (button.overHair()){
     currTab = 0;

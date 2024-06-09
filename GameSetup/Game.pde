@@ -11,8 +11,10 @@ public class Game{
         for (int i = 0; i < closetString.length/2; i++){
           closetClothing[0][i] = new Clothing(width/10,0,currTheme,closetString[i]);
         }
-        for(int i = closetString.length; i<closetString.length; i++){
-          closetClothing[1][i] = new Clothing(width/10,0,currTheme,closetString[i]);
+        int count = 0;
+        for(int i = closetString.length/2; i<closetString.length; i++){
+          closetClothing[1][count] = new Clothing(width/10,0,currTheme,closetString[i]);
+          count ++;
         }
     }
 
