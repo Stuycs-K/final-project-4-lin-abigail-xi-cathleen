@@ -4,7 +4,7 @@ Button button;
 Clothing[] clothes;
 Timer timer;
 boolean press = false;
-int numClothes = 21;
+int numClothes = 27;
 int currTab = 0;
 int currentTime;
 String timerText;

@@ -11,7 +11,7 @@
 03830.310.080EmoLeggings.png
 63830.310.050DenimShorts.png
 83832.300.050BlueJeans.png
-33800.310.048PurplePearlSkirt.png
+93800.310.048PurplePearlSkirt.png
 33800.310.048BrownPlaidSkirt.png
 04833.685.048EmoHeels.png
 14833.685.048BrownLoafers.png
@@ -19,3 +19,9 @@
 25830.130.050GoldNecklace.png
 55760.115.050Scarf.png
 55795.130.050WhiteShawl.png
+53830.310.050WhiteShorts.png
+23832.300.050MermaidSkirt.png
+84833.685.048PandaSlippers.png
+94833.685.048PinkHeels.png
+74833.685.048RedSneakers.png
+44833.685.048BlueHeartSneakers.png
