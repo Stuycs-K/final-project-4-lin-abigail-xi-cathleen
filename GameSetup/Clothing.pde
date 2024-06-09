@@ -28,7 +28,7 @@ public class Clothing{
         if (type == 4){ constant = 0.48; }
         if (type == 5){ constant = 0.5;}
         onClothImage.resize((int)(image.width*constant),(int)(image.height*constant));
-        image.resize(image.width/2,image.height/2);
+        image.resize(200,200);
         moveable = false;
         sX = Integer.parseInt(filename.substring(2,5));
         sY = Integer.parseInt(filename.substring(6,9));
@@ -47,28 +47,28 @@ public class Clothing{
     
     void checkClicked(float cx, float cy){
     if (on){
-          if (cx >= x && cx <= x+onClothImage.width && cy >= y && cy <= y+onClothImage.height && moveable){
-      println(filename);
-      clicked = true;
+      if (cx >= x && cx <= x+onClothImage.width && cy >= y && cy <= y+onClothImage.height && moveable){
+        println(filename);
+        clicked = true;
+      }
+      else {
+        clicked = false;
+      }
     }
     else {
-      clicked = false;
-    }
-    }
-    else {
-          if (cx >= x && cx <= x+image.width && cy >= y && cy <= y+image.height && moveable){
-      //println(filename);
-      clicked = true;
-    }
-    else {
-      clicked = false;
-    }
+      if (cx >= x && cx <= x+image.width && cy >= y && cy <= y+image.height && moveable){
+        //println(filename);
+        clicked = true;
+      }
+      else {
+        clicked = false;
+      }
     }
   }
   
   void update(){
     if (clicked && moveable) {
-      println(filename);
+      //println(filename);
      float dx = mouseX - pmouseX;
      float dy = mouseY - pmouseY;
      x += dx;
@@ -98,8 +98,11 @@ public class Clothing{
   }
   
   void setMoveable(){
-    if (moveable) moveable = false;
-    else moveable = true;
+    moveable = true;
+  }
+  
+  void setUnmoveable(){
+    moveable = false;
   }
   
   void setX(int _x){

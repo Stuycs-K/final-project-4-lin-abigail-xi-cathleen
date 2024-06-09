@@ -116,33 +116,24 @@ void mousePressed(){
   }
   */
   if (button.overHair()){
-    undisplayClothes();
     currTab = 0;
-    //println("pressed on Hair");
   }
   else if(button.overFace()){
-    undisplayClothes();
     currTab = 1;
   }
   else if (button.overTop()){
-    undisplayClothes();
     currTab = 2;
   }
   else if(button.overPant()){
-    undisplayClothes();
     currTab = 3;
-    //println("pressed on Pant");
   }
   else if(button.overShoes()){
-    undisplayClothes();
     currTab = 4;
   }
   else if(button.overAccessories()){
-    undisplayClothes();
     currTab = 5;
   }
   else if (button.overReset()){
-    //println("hi");
     for (int i = 0; i < numClothes; i++){
       clothes[i].snapBack();
     }
@@ -158,19 +149,13 @@ void displayClothes(){
           clothes[i].setMoveable();
           clothes[i].display();
        }
-  }
-}
-
-void undisplayClothes(){
-  for (int i = 0; i < numClothes; i++){
-       if (currTab == clothes[i].getType()){
-          clothes[i].setMoveable();
-          //println(clothes[i].getFile());
+       else {
+         clothes[i].setUnmoveable();
        }
   }
 }
 
-void setClothes(){ // very important type is in order!!!     
+void setClothes(){ // very important type is in order in clothingFiles!!!     
         int pos = 0;
         int t = 0;
         for (int i = 0; i < numClothes; i++){
