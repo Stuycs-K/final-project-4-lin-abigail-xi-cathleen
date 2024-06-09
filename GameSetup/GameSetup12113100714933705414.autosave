@@ -5,7 +5,8 @@ Avatar av;
 Button button;
 Clothing[][] clothes;
 Timer timer;
-int numClothes = 26;
+boolean press = false;
+int numClothes = 28;
 int currTab = 0;
 int currentTime;
 String timerText;
@@ -22,7 +23,7 @@ void setup(){
   //println(Arrays.toString(clothes[1]));
   setClothes();
   timer = new Timer(1000);
-  currentTime = 30; //amt of seconds for game
+  currentTime = 200; //amt of seconds for game
   background = loadImage("room.jpg");
   clothBack = loadImage("clouds.jpg");
   background.resize((int)(background.width*1.55),(int)(background.height*1.55));
@@ -160,27 +161,26 @@ void displayClothes(){
            clothes[i][j].setUnmoveable();
          }
       }
+      
+      
     }
   }
 }
 
 void setClothes(){ // very important type is in order in clothingFiles!!!     
-        //int[] n = new int[6];
-        for (int j = 0; j < clothes.length; j++){
         int pos = 0;
         int t = 0;
+        int slide = 1;
         for (int i = 0; i < clothes[menuMode].length; i++){
-           if (t == clothes[j][i].getType()){
-              clothes[j][i].setPosition(pos);
-              clothes[j][i].setY(pos*150);
-              //n[clothes[j][i].getType()]++;
-              //if (n[clothes[j][i].getType()] > 5){
-              //  clothes[j][i].setSlide(1);
-              //  pos = 0;
-              //}
-              //else {
-              //  clothes[j][i].setSlide(0);
-              //}
+           if (t == clothes[menuMode][i].getType()){
+              if (pos == 5){
+                pos = 0;
+                slide++;
+                println(clothes[menuMode][i].getFile());
+              }
+              clothes[menuMode][i].setPosition(pos);
+              clothes[menuMode][i].setY(pos*150);
+              clothes[menuMode][i].setSlide(slide);
               pos++;
            }
            else {
@@ -188,6 +188,5 @@ void setClothes(){ // very important type is in order in clothingFiles!!!
              pos = 0;
              i--;
            }
-        }
         }
 }

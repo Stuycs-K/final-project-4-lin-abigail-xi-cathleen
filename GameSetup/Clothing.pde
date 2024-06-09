@@ -41,6 +41,10 @@ public class Clothing{
       return type;
     }
     
+    int getSlide(){
+      return slide;
+    }
+    
     void checkClicked(float cx, float cy){
     if (on){
       if (cx >= x && cx <= x+onClothImage.width && cy >= y && cy <= y+onClothImage.height && moveable){
