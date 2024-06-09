@@ -1,6 +1,6 @@
 public class Menu{
   Game game;
-  Clothing[] closet;
+  Clothing[][] closet;
   Button button;
   
   public Menu(){
@@ -9,7 +9,7 @@ public class Menu{
     button = new Button();
   }
   
-   public Clothing[] getCloset(){
+   public Clothing[][] getCloset(){
         return closet;
     }
     

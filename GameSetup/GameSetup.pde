@@ -1,15 +1,18 @@
+import java.io.*;
+import java.util.*;
 Menu menu;
 Avatar av;
 Button button;
-Clothing[] clothes;
+Clothing[][] clothes;
 Timer timer;
 boolean press = false;
-int numClothes = 27;
+int numClothes = 28;
 int currTab = 0;
 int currentTime;
 String timerText;
 PImage background;
 PImage clothBack;
+int menuMode;
 
 void setup(){
   size(1200,900);
@@ -17,13 +20,14 @@ void setup(){
   av = new Avatar();
   button = menu.getButton();
   clothes = menu.getCloset();
+  println(Arrays.toString(clothes[1]));
   setClothes();
   timer = new Timer(1000);
   currentTime = 60; //amt of seconds for game
   background = loadImage("room.jpg");
   clothBack = loadImage("clouds.jpg");
   background.resize((int)(background.width*1.55),(int)(background.height*1.55));
-
+  menuMode = 1;
 }
 
 void draw(){
@@ -44,9 +48,9 @@ void draw(){
   // displaying timer
 
   fill(0);
-  textSize(48);
+  textSize(40);
   timerText = "Time: " + currentTime + " seconds";
-  text(timerText, width/2, height/2);
+  text(timerText, 900, 40);
 
    if(currentTime < 0){
     av.endGame();
@@ -57,44 +61,44 @@ void draw(){
 }
 
 void mouseReleased(){
-  for (int i = 0; i < numClothes; i++){
-    if (mouseX > width*0.6 && clothes[i].clicked){
-      if (!clothes[i].isOn() && clothes[i].onTheme()){
+  for (int i = 0; i < clothes[menuMode].length; i++){
+    if (mouseX > width*0.6 && clothes[menuMode][i].clicked){
+      if (!clothes[menuMode][i].isOn() && clothes[menuMode][i].onTheme()){
         av.addPoints(); // points
       }
-      clothes[i].snapOn();
+      clothes[menuMode][i].snapOn();
     }
-    else if (clothes[i].clicked) {
-      if (clothes[i].isOn() && clothes[i].onTheme()){
+    else if (clothes[menuMode][i].clicked) {
+      if (clothes[menuMode][i].isOn() && clothes[menuMode][i].onTheme()){
         av.removePoints();
       }
-      clothes[i].snapBack();
+      clothes[menuMode][i].snapBack();
     }
-    clothes[i].clicked = false;
+    clothes[menuMode][i].clicked = false;
   }
 }
 
 void mouseDragged(){
-  for (int i = 0; i < numClothes; i++){
-    clothes[i].update();
+  for (int i = 0; i < clothes[menuMode].length; i++){
+    clothes[menuMode][i].update();
   }
 }
 
 void mousePressed(){
   int idx = -1;
-  for (int i = numClothes-1; i >= 0; i--){
-      clothes[i].checkClicked(mouseX,mouseY);
-      if (clothes[i].clicked){
+  for (int i = clothes[menuMode].length-1; i >= 0; i--){
+      clothes[menuMode][i].checkClicked(mouseX,mouseY);
+      if (clothes[menuMode][i].clicked){
         idx = i;
         break;
       }
   }
   if (idx != -1){
-    Clothing last = clothes[idx];
-    for (int i = idx+1; i < numClothes; i++){
-      clothes[i-1] = clothes[i];
+    Clothing last = clothes[menuMode][idx];
+    for (int i = idx+1; i < clothes[menuMode].length; i++){
+      clothes[menuMode][i-1] = clothes[menuMode][i];
     }
-    clothes[numClothes-1] = last;
+    clothes[menuMode][numClothes-1] = last;
   }
   if (button.overHair()){
     currTab = 0;
@@ -115,26 +119,34 @@ void mousePressed(){
     currTab = 5;
   }
   else if (button.overReset()){
-    for (int i = 0; i < numClothes; i++){
-      clothes[i].snapBack();
+    for (int i = 0; i < clothes.length; i++){
+      for(int j = 0; j < clothes[i].length; j++){
+        clothes[i][j].snapBack();
+      }
     }
     av.resetPoints();
     // put all of the clothes back, reset points
   }
   else if (button.overLeft()){
+    if (menuMode == 1){
+      menuMode = 0;
+    }
   }
   else if (button.overRight()){
+    if(menuMode == 0){
+      menuMode = 1;
+    }
   }
 }
 
 void displayClothes(){
-  for (int i = 0; i < numClothes; i++){
-      if (currTab == clothes[i].getType() || clothes[i].isOn()){
-          clothes[i].setMoveable();
-          clothes[i].display();
+  for (int i = 0; i < clothes[menuMode].length; i++){
+      if (currTab == clothes[menuMode][i].getType() || clothes[menuMode][i].isOn()){
+          clothes[menuMode][i].setMoveable();
+          clothes[menuMode][i].display();
        }
        else {
-         clothes[i].setUnmoveable();
+         clothes[menuMode][i].setUnmoveable();
        }
   }
 }
@@ -143,16 +155,16 @@ void setClothes(){ // very important type is in order in clothingFiles!!!
         int pos = 0;
         int t = 0;
         int slide = 1;
-        for (int i = 0; i < numClothes; i++){
-           if (t == clothes[i].getType()){
+        for (int i = 0; i < clothes[menuMode].length; i++){
+           if (t == clothes[menuMode][i].getType()){
               if (pos == 5){
                 pos = 0;
                 slide++;
-                println(clothes[i].getFile());
+                println(clothes[menuMode][i].getFile());
               }
-              clothes[i].setPosition(pos);
-              clothes[i].setY(pos*150);
-              clothes[i].setSlide(slide);
+              clothes[menuMode][i].setPosition(pos);
+              clothes[menuMode][i].setY(pos*150);
+              clothes[menuMode][i].setSlide(slide);
               pos++;
            }
            else {
