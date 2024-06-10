@@ -36,19 +36,19 @@ public class Avatar{
         if (points == 0){
             rating = 0;
         }
-        else if (points <= 10){
+        else if (points == 10){
             rating = 1;
         }
-        else if (points <= 20){
+        else if (points == 20){
             rating = 2;
         }
-        else if (points <= 50){
+        else if (points == 30){
             rating = 3;
         }
-        else if (points <= 70){
+        else if (points == 40){
             rating = 4;
         }
-        else {
+        else if (points == 50){
             rating = 5;
         }
     }
