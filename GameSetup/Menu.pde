@@ -1,6 +1,6 @@
 public class Menu{
   Game game;
-  Clothing[] closet;
+  Clothing[][] closet;
   Button button;
   
   public Menu(){
@@ -9,7 +9,7 @@ public class Menu{
     button = new Button();
   }
   
-   public Clothing[] getCloset(){
+   public Clothing[][] getCloset(){
         return closet;
     }
     
@@ -18,9 +18,11 @@ public class Menu{
     }
     
    public void drawMenu(){
-   fill(105);
-   rect(0, 0, width/3, height, 28);
-   button.drawButton();
+      button.drawButton();
+      fill(0);
+      textSize(40);
+      textAlign(CENTER);
+      text("Theme: "+game.getThemeName(), width/2+200, height-25);
    }
   
 }

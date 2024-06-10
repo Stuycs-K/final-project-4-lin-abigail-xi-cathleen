@@ -102,6 +102,22 @@ Successfully implemented point system, which correctly accounts for snapping on 
 
 Deleted all of the useless java files that are now unneeded. Pulled from Cathleen's code to get working button pressing for testing. Successfully finished a reset button that clears the points and clothing.
 
+## 6/8
+
+I switched out all of the buttons for images pulled from game Love Nikki to make it look more asthethic. I also added a avatar and clothing background.
+
+I added a reset button with a new image, and made the theme viewable.
+
+I was able to fix the problem of the mouse not working all the time by removing the undisplay method and fixing up the display method.
+
+After a lot of tweaking, I added a full emo outfit and change the constructor of clothing to include a constant (which changes image size). I started work on the left and right buttons to move 'slides' in a tab.
+
+## 6/9
+
+With Cathleen, I worked on figuring out how to make left and right buttons work, and adjusting files in clothingNames.txt in the process to fit properly and go on the write page.
+
+I worked on updating the proposal and cutting out unneccessary methods.
+
 ## Cathleen Xi
 
 ### 5/23
@@ -150,3 +166,13 @@ I fixed sizing of text and buttons, and added final touches for the demo branch.
 ### 6/6
 
 I made a new button class with Mr. K's advice, and moved methods from GameSetup there. I figured out how to make button change color when mouse hovers over it. I used that to make all of the buttons change color with hover. I fixed bug with menu tabs not working all the time.
+
+### 6/7
+
+I made a new timer class and created the timer for the game. After the clock runs down, the game will display
+an end screen, which shows the rating of the outfit the user has created.
+
+### 6/9
+
+Worked on left/right buttons in Menu. I also added more clothing files. I also added stars 
+to the end screen.
