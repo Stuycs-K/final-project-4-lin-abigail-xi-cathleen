@@ -27,4 +27,4 @@ Once time runs out, the end screen will be displayed with the number of stars yo
 your outfit.
 
 *Some of the clothing fit weird on the avatar
-
+*In order to remove a piece of clothing from the avatar, you must be in the correct left/right tab
