@@ -112,6 +112,12 @@ I was able to fix the problem of the mouse not working all the time by removing 
 
 After a lot of tweaking, I added a full emo outfit and change the constructor of clothing to include a constant (which changes image size). I started work on the left and right buttons to move 'slides' in a tab.
 
+## 6/9
+
+With Cathleen, I worked on figuring out how to make left and right buttons work, and adjusting files in clothingNames.txt in the process to fit properly and go on the write page.
+
+I worked on updating the proposal and cutting out unneccessary methods.
+
 ## Cathleen Xi
 
 ### 5/23

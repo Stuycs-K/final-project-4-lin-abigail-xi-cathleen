@@ -4,7 +4,6 @@ public class Clothing{
     String filename;
     int x,y,sX,sY;
     boolean clicked;
-    boolean onAvatar;
     boolean moveable;
     PImage image;
     PImage onClothImage;

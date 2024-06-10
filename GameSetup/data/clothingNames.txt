@@ -2,7 +2,7 @@
 94820.650.070PinkHeels.png
 00780.010.075Emo.png
 40793.030.075BlondBob.png
-30780.010.075BlondBraids.png
+30805.025.050BlondBraids.png
 11830.060.030EmoFace.png
 11870.090.010Happy.png
 21870.090.010Wink.png
@@ -20,8 +20,8 @@
 14833.685.048BrownLoafers.png
 44833.685.048BlueHeartSneakers.png
 74840.690.048RedSneakers.png
-70780.010.030BrownPonytail.png
-81830.060.030SleepyFace.png
+70780.030.050BrownPonytail.png
+81820.040.040SleepyFace.png
 92800.170.057PinkBlouse.png
 05600.000.150EmoFeathers.png
 25830.130.050GoldNecklace.png

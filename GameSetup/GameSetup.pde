@@ -92,7 +92,7 @@ void mousePressed(){
         break;
       }
   }
-  println("idx" + idx);
+  //println("idx" + idx);
   if (idx != -1){
     Clothing last = clothes[menuMode][idx];
     for (int i = idx+1; i < clothes[menuMode].length; i++){
